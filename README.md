@@ -1,2 +1,3 @@
-# skillengine-line-tokuten-lp
-スキルエンジン LINE友だち追加特典LP（公開）
+# スキルエンジン LINE追加特典LP
+
+スキルエンジン（ガガロットのAIスクール）向けの公式LINE追加特典ページです。個別面談のCTAはスキルエンジンのLIFF予約です。
