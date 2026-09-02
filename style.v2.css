@@ -253,7 +253,7 @@ h1 {
   background: #fff;
 }
 .proofs figure:last-child img {
-  height: 168px;
+  height: 132px;
   object-fit: contain;
   object-position: top center;
   background: #0b1220;
@@ -304,9 +304,9 @@ h1 {
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 2.6em;
+  min-height: 2.4em;
   font-size: 12px;
-  line-height: 1.25;
+  line-height: 1.2;
   font-weight: 900;
 }
 .wreath span { font-size: 10px; color: var(--muted); font-weight: 800; }
@@ -491,7 +491,6 @@ footer a { color: #2563eb; }
   display: grid; grid-template-columns: 1fr 1fr; gap: 8px;
   align-items: start;
 }
-.stat-grid.stack { grid-template-columns: 1fr; }
 .proof-card, .stat-card, .voice-card {
   margin: 0;
   background: #fff;
