@@ -562,6 +562,9 @@ footer a { color: #2563eb; }
 }
 .collab .photo img { width: 100%; height: 100%; object-fit: cover; }
 .collab .photo.logo img { object-fit: contain; padding: 8px; background: #fff; }
+/* 顔写真の見切れ対策(2026-09-02): 縦長・正方形の写真は 4:3 に押し込むと額や帽子が切れるので、
+   俳優3名のカードは正方形の枠にし、正方形に切り出し済みの写真(collab-*-sq.jpg)を使う */
+.collab .photo.sq { aspect-ratio: 1 / 1; }
 .collab h3 { margin: 10px 0 2px; font-size: 13px; line-height: 1.35; }
 .collab .tag-en {
   font-size: 9px; letter-spacing: .13em; text-transform: uppercase;
