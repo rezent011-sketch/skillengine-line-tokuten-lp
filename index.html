@@ -17,11 +17,15 @@
     <span class="sp s1"></span><span class="sp s2"></span><span class="sp s3"></span>
     <span class="sp s4"></span><span class="sp s5"></span>
     <div class="brand"><span class="dot"></span> スキルエンジン</div>
-    <span class="chip">友だち追加から3時間限定</span>
+    <span class="chip">プレゼント配布は3時間限定</span>
     <h1>友だち追加<br>ありがとう<br><span class="em2">3時間限定</span>の<br><span class="em-gold">キャンペーン特典</span></h1>
     <p class="pitch">現役<span class="em-gold">AI</span>×SNSマーケターからの<span class="em">直接指導</span>！<br><span class="em-gold">AI</span>×SNSマーケティングから<span class="em">1年で</span><span class="em2">6000万円</span><br><span class="em-gold">稼がせる</span>ことに特化した<span class="em">強化指導</span><br>費用も<span class="em-free">無料</span></p>
+    <div class="gift-limit" id="giftLimit">
+      <div class="gl-head"><svg class="gl-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12v9H4v-9" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M2 7h20v5H2z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M12 22V7M12 7c-2.5 0-5-1.2-5-3 0-1.5 1.2-2 2.2-2C11 2 12 4.5 12 7zm0 0c2.5 0 5-1.2 5-3 0-1.5-1.2-2-2.2-2C13 2 12 4.5 12 7z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>プレゼント配布は<span class="gl-hl">3時間限定</span></div>
+      <p class="gl-body"><span class="gl-live">20大特典は、下のタイマーが <b>0</b> になる前にご予約いただいた方だけにお渡しします。<br><small>お渡しは面談のあとです。時間を過ぎると受け取れません。</small></span><span class="gl-over">プレゼント配布は終了しました。<br><small>個別相談のご予約は引き続き可能です。</small></span></p>
+    </div>
     <div class="timer" id="timer">
-      <div class="cap">キャンペーン終了まで</div>
+      <div class="cap"><span class="cap-live">プレゼント配布 終了まで</span><span class="cap-over">プレゼント配布は終了しました</span></div>
       <div class="row">
         <div class="box"><span class="n" data-u="h">03</span><span class="u">時間</span></div>
         <div class="colon">:</div>
@@ -320,6 +324,9 @@
   function pad(n) { return String(n).padStart(2, "0"); }
   function tick() {
     var left = Math.max(0, end - Date.now());
+    var over = left <= 0;
+    document.getElementById("timer").classList.toggle("is-over", over);
+    var gl = document.getElementById("giftLimit"); if (gl) gl.classList.toggle("is-over", over);
     var h = Math.floor(left / 3600000);
     var m = Math.floor((left % 3600000) / 60000);
     var s = Math.floor((left % 60000) / 1000);
