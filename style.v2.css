@@ -612,3 +612,6 @@ footer .disc { text-align: left; line-height: 1.75; margin-bottom: 8px; }
   box-shadow: 0 10px 24px rgba(30,27,75,.18);
 }
 .top-visuals.voices { margin: 10px 0 8px; }
+
+/* 2026-09-03: ヒーローの「実績報告」画像を外したので、残った1枚は全幅に */
+.proofs figure:only-child { grid-column: 1 / -1; }
