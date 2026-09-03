@@ -314,13 +314,12 @@
 (function () {
   var KEY = "skillengine-lp-3h";
   var SPAN = 3 * 60 * 60 * 1000;
-  // 開いた時点で期限切れなら、その人の3時間を新しく始める(2026-09-03)。
-  // いつ誰が開いても「終了しました」のページにはならない。同じ端末で開き直す間は前回の残り時間を引き継ぐ。
-  var end = Number(localStorage.getItem(KEY) || 0);
-  if (!end || end <= Date.now()) {
-    end = Date.now() + SPAN;
-    try { localStorage.setItem(KEY, String(end)); } catch (e) {}
+  var end = localStorage.getItem(KEY);
+  if (!end) {
+    end = String(Date.now() + SPAN);
+    try { localStorage.setItem(KEY, end); } catch (e) {}
   }
+  end = Number(end);
   var hs = document.querySelectorAll("[data-u]");
   function pad(n) { return String(n).padStart(2, "0"); }
   function tick() {
