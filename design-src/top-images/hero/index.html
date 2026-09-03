@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>hero</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=M+PLUS+Rounded+1c:wght@900&family=Noto+Sans+JP:wght@700;900&family=Shippori+Mincho+B1:wght@600;800&display=block" rel="stylesheet">
+<style>
+  html,body{margin:0;padding:0;width:1280px;height:720px;overflow:hidden;background:#061a4a;}
+  *{box-sizing:border-box;}
+  .stage{position:relative;width:1280px;height:720px;overflow:hidden;
+    background:
+      radial-gradient(ellipse 60% 50% at 50% 42%, rgba(120,210,255,.75) 0%, rgba(30,120,230,.55) 30%, rgba(10,50,150,0) 70%),
+      radial-gradient(ellipse 100% 80% at 50% 50%, #1d63c9 0%, #0c3a96 45%, #061a52 80%, #040f33 100%);
+  }
+  /* radiating rays */
+  .rays{position:absolute;left:50%;top:44%;width:2400px;height:2400px;transform:translate(-50%,-50%);
+    background:repeating-conic-gradient(from 0deg at 50% 50%, rgba(255,255,255,.0) 0deg, rgba(255,255,255,.0) 4deg, rgba(180,230,255,.42) 6deg, rgba(255,255,255,.0) 9deg, rgba(255,255,255,.0) 13deg, rgba(150,220,255,.28) 15deg, rgba(255,255,255,.0) 17deg);
+    mask:radial-gradient(circle at 50% 50%, rgba(0,0,0,.95) 0%, rgba(0,0,0,.6) 30%, rgba(0,0,0,0) 75%);
+    -webkit-mask:radial-gradient(circle at 50% 50%, rgba(0,0,0,.95) 0%, rgba(0,0,0,.6) 30%, rgba(0,0,0,0) 75%);
+  }
+  .rays2{position:absolute;left:50%;top:44%;width:2400px;height:2400px;transform:translate(-50%,-50%) rotate(7deg);
+    background:repeating-conic-gradient(from 0deg at 50% 50%, rgba(255,255,255,0) 0deg, rgba(255,255,255,0) 9deg, rgba(255,255,255,.36) 10deg, rgba(255,255,255,0) 11.5deg, rgba(255,255,255,0) 22deg);
+    mask:radial-gradient(circle at 50% 50%, rgba(0,0,0,1) 0%, rgba(0,0,0,.5) 25%, rgba(0,0,0,0) 70%);
+    -webkit-mask:radial-gradient(circle at 50% 50%, rgba(0,0,0,1) 0%, rgba(0,0,0,.5) 25%, rgba(0,0,0,0) 70%);
+  }
+  .bgimg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 30%;opacity:.45;mix-blend-mode:screen;}
+  .vignette{position:absolute;inset:0;background:radial-gradient(ellipse 75% 70% at 50% 50%, rgba(0,0,0,0) 55%, rgba(2,10,40,.5) 100%);}
+  .sparkles{position:absolute;inset:0;}
+
+  /* ribbon top-left */
+  .ribbon{position:absolute;left:-110px;top:104px;width:600px;height:72px;transform:rotate(-35deg);z-index:5;
+    background:linear-gradient(180deg,#ff3b3b 0%,#e0121a 45%,#b70008 100%);
+    box-shadow:0 6px 18px rgba(0,0,0,.45), inset 0 1px 0 rgba(255,255,255,.35);
+    display:flex;align-items:center;justify-content:center;
+    border-top:2px solid #ffd27a;border-bottom:2px solid #ffd27a;
+  }
+  .ribbon span{font-family:'Noto Sans JP',sans-serif;font-weight:900;color:#fff;font-size:32px;letter-spacing:.04em;white-space:nowrap;
+    text-shadow:0 2px 3px rgba(0,0,0,.35);}
+  .ribbon b{font-family:'Dela Gothic One','Noto Sans JP',sans-serif;font-weight:400;font-size:40px;color:#fff56a;margin:0 2px;}
+
+  /* badge top-right */
+  .badge{position:absolute;right:26px;top:22px;width:184px;height:184px;border-radius:50%;z-index:6;
+    background:radial-gradient(circle at 40% 30%, #fff8d6 0%, #ffe28a 25%, #f5b829 55%, #d98f0f 80%, #b06d00 100%);
+    box-shadow:0 0 0 6px #7a4b00, 0 0 0 14px #ffe08a, 0 0 0 17px #8d5a00, 0 12px 28px rgba(0,0,0,.5);
+    display:flex;flex-direction:column;align-items:center;justify-content:center;transform:rotate(8deg);}
+  .badge::before{content:"";position:absolute;inset:10px;border-radius:50%;border:3px dashed rgba(122,75,0,.6);}
+  .badge .l1{font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:21px;color:#7a3a00;letter-spacing:.06em;line-height:1;margin-top:-2px;}
+  .badge .l2{font-family:'Dela Gothic One','Noto Sans JP',sans-serif;font-size:62px;color:#b30000;line-height:1;margin:4px 0 0;
+    text-shadow:0 2px 0 #fff2c2, 0 3px 4px rgba(0,0,0,.25);}
+  .badge .l2 small{font-size:40px;}
+  .badge .l3{font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:28px;color:#7a3a00;letter-spacing:.1em;margin-top:2px;line-height:1;}
+
+  /* subtitle */
+  .sub{position:absolute;left:110px;right:0;top:66px;text-align:center;
+    font-family:'Shippori Mincho B1',serif;font-weight:800;font-size:32px;color:#fff;letter-spacing:.06em;white-space:nowrap;
+    text-shadow:0 0 12px rgba(80,170,255,.9),0 2px 4px rgba(0,20,80,.8);}
+  .sub .dash{display:inline-block;margin:0 .1em;}
+
+  /* title */
+  .title{position:absolute;left:0;right:0;top:160px;text-align:center;height:220px;z-index:3;}
+  .title .layer{position:absolute;left:0;right:0;top:0;text-align:center;
+    font-family:'Dela Gothic One','Noto Sans JP',sans-serif;font-size:128px;line-height:1;letter-spacing:.01em;white-space:nowrap;}
+  .title .shadow{color:#9a4a00;
+    text-shadow:
+      1px 2px 0 #9a4a00,2px 4px 0 #8a4000,3px 6px 0 #7a3600,4px 8px 0 #6a2e00,5px 10px 0 #5c2600,
+      6px 12px 0 #4e2000,7px 14px 0 #421a00,8px 16px 0 #3a1600,9px 18px 0 #321200,10px 20px 0 #2a0f00,
+      10px 32px 30px rgba(0,0,0,.6), 0 0 60px rgba(0,60,180,.7);}
+  .title .stroke{color:#4a2400;-webkit-text-stroke:12px #4a2400;paint-order:stroke;}
+  .title .stroke2{color:#fff6cc;-webkit-text-stroke:3px #fff6cc;paint-order:stroke;transform:translateY(-1px);}
+  .title .fill{
+    background:linear-gradient(180deg,#fffbe0 0%,#fff0a0 14%,#ffd54a 32%,#f7a800 50%,#ffdf5a 58%,#f9b81a 76%,#e8890a 100%);
+    -webkit-background-clip:text;background-clip:text;color:transparent;}
+  .title .gloss{
+    background:linear-gradient(180deg,rgba(255,255,255,.85) 0%,rgba(255,255,255,.35) 22%,rgba(255,255,255,0) 40%);
+    -webkit-background-clip:text;background-clip:text;color:transparent;}
+
+  /* catch */
+  .catch{position:absolute;left:0;right:0;top:336px;text-align:center;z-index:4;}
+  .catch .pill{display:inline-block;position:relative;padding:0 40px 0 42px;height:88px;line-height:88px;
+    background:linear-gradient(180deg,#fff 0%,#f4f6ff 100%);border-radius:48px;
+    box-shadow:0 0 0 4px #ffd766, 0 0 0 8px #1a3a8a, 0 12px 26px rgba(0,0,0,.45);
+    font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:40px;color:#0e2a6e;letter-spacing:.02em;white-space:nowrap;}
+  .catch .pill em{font-style:normal;color:#d5121a;}
+  .catch .pill .tsuki{display:inline-block;margin-left:14px;padding:0 16px;height:62px;line-height:62px;vertical-align:middle;position:relative;top:-3px;border-radius:12px;
+    background:linear-gradient(180deg,#ff5a5a,#c80a12);color:#fff;font-size:38px;
+    box-shadow:0 3px 0 #7a0008;}
+
+  /* condition note */
+  .note{position:absolute;left:0;right:0;top:438px;text-align:center;z-index:4;}
+  .note span{display:inline-block;font-family:'Noto Sans JP',sans-serif;font-weight:700;font-size:22px;color:#fff;letter-spacing:.04em;line-height:1;
+    padding:6px 20px;border-radius:16px;background:rgba(2,16,70,.55);
+    text-shadow:0 1px 2px rgba(0,20,80,.9),0 0 8px rgba(0,30,120,.8);}
+
+  /* bottom badges */
+  .bottom{position:absolute;left:0;right:0;bottom:16px;display:flex;justify-content:center;gap:80px;align-items:flex-end;}
+  .item{display:flex;flex-direction:column;align-items:center;width:300px;}
+  .item img{width:160px;height:160px;display:block;filter:drop-shadow(0 8px 14px rgba(0,0,0,.55));}
+  .item .lab{margin-top:2px;font-family:'Noto Sans JP',sans-serif;font-weight:900;color:#fff;font-size:30px;letter-spacing:.02em;white-space:nowrap;
+    text-shadow:0 2px 0 #0a1f5a,0 0 10px rgba(0,30,120,.9),0 3px 8px rgba(0,0,0,.6);line-height:1.15;}
+  .item .lab .num{font-family:'M PLUS Rounded 1c','Noto Sans JP',sans-serif;font-weight:900;font-size:50px;color:#ffd83c;
+    position:relative;top:2px;margin:0 2px;letter-spacing:0;
+    text-shadow:0 2px 0 #7a3f00,0 3px 0 #5a2c00,0 0 10px rgba(0,30,120,.9),0 4px 8px rgba(0,0,0,.6);}
+  .item .lab .num.ai{font-size:40px;}
+  .bottomline{position:absolute;left:120px;right:120px;bottom:246px;height:3px;
+    background:linear-gradient(90deg,rgba(255,220,120,0),rgba(255,225,140,.9) 20%,rgba(255,225,140,.9) 80%,rgba(255,220,120,0));}
+</style>
+</head>
+<body>
+<div class="stage">
+  <div class="rays"></div>
+  <div class="rays2"></div>
+  <img class="bgimg" src="file:///private/tmp/claude-501/-Users-user-----------/15553c2f-47ef-40e2-abfd-3a1c43bebaaf/scratchpad/tokuten-lp/assets/hero-bg.jpg" alt="">
+  <div class="vignette"></div>
+  <svg class="sparkles" viewBox="0 0 1280 720" width="1280" height="720" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <g id="sp"><path d="M0-1 C0.2-0.2 0.2-0.2 1 0 C0.2 0.2 0.2 0.2 0 1 C-0.2 0.2 -0.2 0.2 -1 0 C-0.2-0.2 -0.2-0.2 0-1Z" fill="#fff"/></g>
+      <radialGradient id="glow"><stop offset="0" stop-color="#fff" stop-opacity=".9"/><stop offset="1" stop-color="#8fd8ff" stop-opacity="0"/></radialGradient>
+    </defs>
+    <circle cx="640" cy="230" r="260" fill="url(#glow)" opacity=".35"/>
+    <g opacity=".95">
+      <use href="#sp" transform="translate(150 150) scale(26)"/>
+      <use href="#sp" transform="translate(1120 322) scale(18)"/>
+      <use href="#sp" transform="translate(260 480) scale(18)"/>
+      <use href="#sp" transform="translate(1030 480) scale(20)"/>
+      <use href="#sp" transform="translate(90 330) scale(14)"/>
+      <use href="#sp" transform="translate(1200 330) scale(16)"/>
+      <use href="#sp" transform="translate(640 28) scale(12)"/>
+      <use href="#sp" transform="translate(200 345) scale(9)"/>
+      <use href="#sp" transform="translate(1085 350) scale(9)"/>
+      <use href="#sp" transform="translate(60 560) scale(12)"/>
+      <use href="#sp" transform="translate(1230 560) scale(12)"/>
+      <use href="#sp" transform="translate(120 600) scale(7)"/>
+      <use href="#sp" transform="translate(1160 600) scale(7)"/>
+      <use href="#sp" transform="translate(50 640) scale(14)"/>
+      <use href="#sp" transform="translate(1230 645) scale(14)"/>
+      <use href="#sp" transform="translate(28 500) scale(11)"/>
+      <use href="#sp" transform="translate(1252 500) scale(11)"/>
+      <use href="#sp" transform="translate(150 540) scale(8)"/>
+      <use href="#sp" transform="translate(1130 540) scale(8)"/>
+      <use href="#sp" transform="translate(445 520) scale(8)"/>
+      <use href="#sp" transform="translate(835 520) scale(8)"/>
+    </g>
+    <g fill="#fff">
+      <circle cx="70" cy="262" r="3"/><circle cx="1160" cy="262" r="3"/><circle cx="215" cy="215" r="2"/><circle cx="1075" cy="215" r="2"/>
+      <circle cx="200" cy="420" r="2.5"/><circle cx="1090" cy="410" r="2.5"/><circle cx="500" cy="34" r="2"/><circle cx="840" cy="34" r="2"/>
+      <circle cx="40" cy="450" r="2"/><circle cx="1240" cy="450" r="2"/><circle cx="440" cy="560" r="2"/><circle cx="360" cy="600" r="2"/><circle cx="920" cy="600" r="2"/>
+      <circle cx="100" cy="690" r="2.5"/><circle cx="1180" cy="690" r="2.5"/><circle cx="430" cy="640" r="2"/><circle cx="850" cy="640" r="2"/>
+      <circle cx="20" cy="600" r="2"/><circle cx="1260" cy="600" r="2"/><circle cx="220" cy="500" r="2.5"/><circle cx="1060" cy="510" r="2.5"/>
+      <circle cx="840" cy="565" r="2"/><circle cx="30" cy="700" r="2"/>
+    </g>
+    <circle cx="150" cy="150" r="40" fill="url(#glow)" opacity=".7"/>
+    <circle cx="1120" cy="322" r="32" fill="url(#glow)" opacity=".7"/>
+    <circle cx="260" cy="480" r="30" fill="url(#glow)" opacity=".6"/>
+    <circle cx="1030" cy="480" r="30" fill="url(#glow)" opacity=".6"/>
+    <circle cx="50" cy="640" r="26" fill="url(#glow)" opacity=".55"/>
+    <circle cx="1230" cy="645" r="26" fill="url(#glow)" opacity=".55"/>
+  </svg>
+
+  <div class="ribbon"><span>友だち追加から <b>3</b>時間限定</span></div>
+
+  <div class="badge">
+    <div class="l1">公式LINE</div>
+    <div class="l2">20<small>大</small></div>
+    <div class="l3">特典</div>
+  </div>
+
+  <div class="sub"><span class="dash">―</span>AI×SNSで成果を出す公式LINE特典<span class="dash">―</span></div>
+
+  <div class="title">
+    <div class="layer shadow">スキルエンジン</div>
+    <div class="layer stroke">スキルエンジン</div>
+    <div class="layer stroke2">スキルエンジン</div>
+    <div class="layer fill">スキルエンジン</div>
+    <div class="layer gloss">スキルエンジン</div>
+  </div>
+
+  <div class="catch">
+    <span class="pill">現役<em>AI×SNS</em>マーケターの直接指導<span class="tsuki">付き</span></span>
+  </div>
+
+  <div class="note"><span>※20大特典のお渡しは面談のあとになります</span></div>
+
+  <div class="bottom">
+    <div class="item">
+      <img src="file:///private/tmp/claude-501/-Users-user-----------/15553c2f-47ef-40e2-abfd-3a1c43bebaaf/scratchpad/tokuten-lp/assets/badge-ai.png" alt="">
+      <div class="lab"><span class="num ai">AI×SNS</span> 直接指導</div>
+    </div>
+    <div class="item">
+      <img src="file:///private/tmp/claude-501/-Users-user-----------/15553c2f-47ef-40e2-abfd-3a1c43bebaaf/scratchpad/tokuten-lp/assets/badge-50man.png" alt="">
+      <div class="lab">総フォロワー 約<span class="num">50万</span></div>
+    </div>
+    <div class="item">
+      <img src="file:///private/tmp/claude-501/-Users-user-----------/15553c2f-47ef-40e2-abfd-3a1c43bebaaf/scratchpad/tokuten-lp/assets/badge-50sha.png" alt="">
+      <div class="lab">X運用代行 <span class="num">50社</span></div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

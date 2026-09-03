@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<style>
+@font-face{font-family:'Dela Gothic One';font-weight:400;src:url(fonts/dela.ttf) format('truetype');}
+@font-face{font-family:'M PLUS Rounded 1c';font-weight:900;src:url(fonts/mplus.ttf) format('truetype');}
+@font-face{font-family:'Noto Sans JP';font-weight:900;src:url(fonts/notojp.ttf) format('truetype');}
+</style>
+<style>
+  html,body{margin:0;padding:0;}
+  body{width:1280px;height:620px;overflow:hidden;position:relative;font-family:'Noto Sans JP',sans-serif;
+    background:#8fd4f3;}
+  /* water surface */
+  .bg{position:absolute;inset:0;
+    background:
+      radial-gradient(ellipse 60% 40% at 20% 10%, rgba(255,255,255,.45), rgba(255,255,255,0) 70%),
+      radial-gradient(ellipse 70% 40% at 50% 100%, rgba(20,120,200,.55), rgba(20,120,200,0) 70%),
+      linear-gradient(180deg,#bfe9fb 0%,#8fd4f3 50%,#4fb3e6 100%);}
+  .bg img{position:absolute;left:0;top:0;width:1280px;height:620px;object-fit:cover;opacity:.28;mix-blend-mode:screen;filter:blur(1.5px);}
+  .caustic{position:absolute;inset:0;mix-blend-mode:soft-light;opacity:.9;}
+  .ripples{position:absolute;inset:0;opacity:.5;
+    background:
+      repeating-radial-gradient(ellipse 900px 260px at 15% 110%, rgba(255,255,255,0) 0 46px, rgba(255,255,255,.55) 48px 54px),
+      repeating-radial-gradient(ellipse 1000px 300px at 90% 105%, rgba(255,255,255,0) 0 56px, rgba(255,255,255,.4) 58px 63px);
+    -webkit-mask-image:linear-gradient(180deg,rgba(0,0,0,0) 20%,#000 100%);}
+
+  /* cards */
+  .cards{position:absolute;left:40px;top:40px;width:1200px;display:flex;gap:24px;}
+  .card{width:384px;height:398px;box-sizing:border-box;border-radius:28px;position:relative;
+    border:7px solid transparent;
+    background:linear-gradient(#fff,#fff) padding-box,
+               linear-gradient(135deg,#f9e27a 0%,#d39b1f 30%,#fff1b8 52%,#c48a14 75%,#f2cf6a 100%) border-box;
+    box-shadow:0 16px 32px rgba(10,80,140,.35), inset 0 0 0 3px #fff, inset 0 0 0 6px #e6b93f;
+    display:flex;flex-direction:column;align-items:center;text-align:center;}
+  .icon{width:92px;height:92px;border-radius:50%;margin-top:40px;
+    background:linear-gradient(160deg,#ffe58a 0%,#f0b426 55%,#c8801a 100%);
+    box-shadow:0 0 0 4px #fff,0 0 0 7px #e9bd45,0 8px 14px rgba(160,100,10,.35), inset 0 -4px 8px rgba(120,60,0,.25), inset 0 3px 6px rgba(255,255,255,.7);
+    display:flex;align-items:center;justify-content:center;}
+  .icon svg{width:56px;height:56px;fill:#fff;filter:drop-shadow(0 2px 2px rgba(120,60,0,.4));}
+  .head{margin-top:16px;font-weight:900;font-size:38px;color:#1a1a1a;letter-spacing:.02em;line-height:1.15;}
+  .num{margin-top:4px;font-family:'Dela Gothic One',sans-serif;color:#e01a26;line-height:1;white-space:nowrap;
+    letter-spacing:-.04em;
+    text-shadow:none;filter:drop-shadow(0 4px 0 #a80f18) drop-shadow(0 8px 8px rgba(0,0,0,.18));}
+  .num .big{font-size:84px;}
+  .num .unit{font-size:50px;margin-left:2px;}
+  .num .pre{font-size:36px;margin-right:4px;}
+  .c3 .num{letter-spacing:-.06em;margin-top:9px;}
+  .c3 .num .big{font-size:74px;}
+  .c3 .num .unit{font-size:42px;}
+  .c3 .foot{margin-top:19px;}
+  .foot{margin-top:14px;font-weight:900;font-size:34px;color:#1a1a1a;letter-spacing:.03em;line-height:1.4;}
+
+  /* pill */
+  .pill{position:absolute;left:120px;top:478px;width:1040px;height:96px;border-radius:48px;
+    background:linear-gradient(90deg,#d8101c 0%,#f0341e 45%,#ff8a1e 100%);
+    box-shadow:0 12px 26px rgba(180,30,10,.4), inset 0 3px 0 rgba(255,255,255,.35), inset 0 -4px 0 rgba(120,0,0,.25);
+    display:flex;align-items:center;justify-content:center;}
+  .pill span{font-family:'M PLUS Rounded 1c','Noto Sans JP',sans-serif;font-weight:900;font-size:50px;color:#fff;
+    letter-spacing:.04em;white-space:nowrap;text-shadow:0 3px 0 rgba(120,0,0,.35);line-height:1;}
+</style>
+</head>
+<body>
+<div class="bg">
+  <img src="file:///private/tmp/claude-501/-Users-user-----------/15553c2f-47ef-40e2-abfd-3a1c43bebaaf/scratchpad/tokuten-lp/assets/hero-bg.jpg" alt="">
+  <svg class="caustic" width="1280" height="620" viewBox="0 0 1280 620" preserveAspectRatio="none">
+    <filter id="ca" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="turbulence" baseFrequency="0.009 0.016" numOctaves="2" seed="7" result="t"/>
+      <feColorMatrix in="t" type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 12 -5.5" result="m"/>
+      <feGaussianBlur in="m" stdDeviation="1.2"/>
+    </filter>
+    <rect width="1280" height="620" filter="url(#ca)"/>
+  </svg>
+  <div class="ripples"></div>
+</div>
+
+<div class="cards">
+  <div class="card">
+    <div class="icon"><svg viewBox="0 0 64 64"><circle cx="24" cy="20" r="10"/><circle cx="44" cy="22" r="8"/><path d="M6 50c0-11 8-18 18-18s18 7 18 18v4H6z"/><path d="M44 34c8 0 14 6 14 15v5H45v-4c0-6-2-11-5-15 1-.6 2.6-1 4-1z"/></svg></div>
+    <div class="head">総フォロワー</div>
+    <div class="num"><span class="pre">約</span><span class="big">50</span><span class="unit">万</span></div>
+    <div class="foot">AI×SNS</div>
+  </div>
+  <div class="card">
+    <div class="icon"><svg viewBox="0 0 64 64"><path d="M10 56V14h22v42zM16 20h4v4h-4zm6 0h4v4h-4zm-6 8h4v4h-4zm6 0h4v4h-4zm-6 8h4v4h-4zm6 0h4v4h-4zm-3 8h4v12h-4z"/><path d="M34 56V26h20v30zM38 32h4v4h-4zm8 0h4v4h-4zm-8 8h4v4h-4zm8 0h4v4h-4zm-6 8h4v8h-4z"/><path d="M6 56h52v3H6z"/></svg></div>
+    <div class="head">X運用代行</div>
+    <div class="num"><span class="big">50</span><span class="unit">社</span></div>
+    <div class="foot">実績</div>
+  </div>
+  <div class="card c3">
+    <div class="icon"><svg viewBox="0 0 64 64"><ellipse cx="32" cy="46" rx="22" ry="8" fill="#fff"/><ellipse cx="32" cy="38" rx="22" ry="8" fill="#fff" stroke="#d99a1c" stroke-width="2"/><ellipse cx="32" cy="30" rx="22" ry="8" fill="#fff" stroke="#d99a1c" stroke-width="2"/><ellipse cx="32" cy="22" rx="22" ry="8" fill="#fff" stroke="#d99a1c" stroke-width="2"/><text x="32" y="27" font-size="13" font-family="Dela Gothic One" text-anchor="middle" fill="#d99a1c">¥</text></svg></div>
+    <div class="head">AI×SNSで</div>
+    <div class="num"><span class="big">6000</span><span class="unit">万円</span></div>
+    <div class="foot">1年の実績</div>
+  </div>
+</div>
+
+<div class="pill"><span>現役マーケターが直接指導するAIスクール</span></div>
+</body>
+</html>

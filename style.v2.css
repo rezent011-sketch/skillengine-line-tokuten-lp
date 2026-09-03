@@ -603,3 +603,12 @@ footer .disc { text-align: left; line-height: 1.75; margin-bottom: 8px; }
 .gift-limit.is-over .gl-head { color: #6b7280; }
 .gift-limit.is-over .gl-hl { color: #6b7280; }
 .gift-limit.is-over .gl-icon { color: #9ca3af; }
+
+/* ── 最上部の販促画像(2026-09-03 追加): ヒーロー画像・実績3カード・受講生の声コラージュ ── */
+.top-visuals { display: grid; gap: 8px; margin: 8px 0 4px; }
+.top-visuals img {
+  width: 100%; height: auto; display: block;
+  border-radius: 14px;
+  box-shadow: 0 10px 24px rgba(30,27,75,.18);
+}
+.top-visuals.voices { margin: 10px 0 8px; }

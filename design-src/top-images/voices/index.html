@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>voices</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=M+PLUS+Rounded+1c:wght@900&display=swap" rel="stylesheet">
+<style>
+  html, body { margin:0; padding:0; }
+  body { width:768px; height:1086px; overflow:hidden; background:#0b2a7a; }
+  .stage { position:relative; width:768px; height:1086px; overflow:hidden;
+    background:
+      radial-gradient(ellipse 70% 55% at 50% 50%, rgba(40,120,255,.55) 0%, rgba(10,40,140,0) 70%),
+      radial-gradient(ellipse 100% 100% at 50% 50%, #1b4fd6 0%, #0e2f9c 50%, #071b62 100%); }
+  .bg { position:absolute; inset:0; background:url("file:///private/tmp/claude-501/-Users-user-----------/15553c2f-47ef-40e2-abfd-3a1c43bebaaf/scratchpad/tokuten-lp/assets/hero-bg.jpg") center/cover no-repeat; mix-blend-mode:screen; opacity:.7; }
+  .rays { position:absolute; left:50%; top:50%; width:2000px; height:2000px; transform:translate(-50%,-50%);
+    background: repeating-conic-gradient(from 0deg, rgba(255,255,255,.18) 0deg 4deg, rgba(255,255,255,0) 4deg 12deg);
+    -webkit-mask: radial-gradient(circle, rgba(0,0,0,1) 0%, rgba(0,0,0,.5) 35%, rgba(0,0,0,0) 62%); }
+  .glow { position:absolute; left:50%; top:50%; width:820px; height:520px; transform:translate(-50%,-50%);
+    background: radial-gradient(ellipse at center, rgba(255,255,255,.28) 0%, rgba(120,190,255,.22) 30%, rgba(30,80,220,0) 70%); }
+  .vignette { position:absolute; inset:0; z-index:20; pointer-events:none;
+    background: radial-gradient(ellipse 80% 80% at 50% 50%, rgba(0,0,0,0) 55%, rgba(3,12,60,.32) 100%); }
+
+  .card { position:absolute; border:6px solid #fff; border-radius:12px; overflow:hidden; background:#fff;
+    box-shadow: 0 16px 34px rgba(0,10,60,.55), 0 0 0 1px rgba(0,0,0,.1); }
+  .card img { display:block; width:100%; height:100%; object-fit:cover; }
+
+  .title { position:absolute; left:0; right:0; top:392px; text-align:center; z-index:50;
+    font-family:"Dela Gothic One", "M PLUS Rounded 1c", sans-serif; line-height:1; }
+  .line { position:relative; height:1em; margin:0 auto; white-space:nowrap; }
+  .line .o, .line .s, .line .f { position:absolute; left:0; right:0; top:0; }
+  .line .o { color:#0b1e5e; -webkit-text-stroke:30px #0b1e5e; paint-order:stroke fill;
+    text-shadow: 0 8px 0 #0b1e5e, 0 16px 26px rgba(0,8,50,.65); }
+  .line.red .o { color:#4a000c; -webkit-text-stroke-color:#4a000c; text-shadow: 0 8px 0 #4a000c, 0 16px 26px rgba(0,8,50,.65); }
+  .line .s { color:#fff; -webkit-text-stroke:16px #fff; paint-order:stroke fill; text-shadow: 0 7px 0 #b8760a; }
+  .line.red .s { text-shadow: 0 7px 0 #7a000c; }
+  .line .f { -webkit-background-clip:text; background-clip:text; color:transparent; }
+  .gold .f { background-image: linear-gradient(180deg, #fffbe0 0%, #ffe75a 28%, #ffc31a 50%, #e0900a 62%, #ffd23f 78%, #ffef9a 100%); }
+  .red .f { background-image: linear-gradient(180deg, #ff8a8a 0%, #ff4a52 30%, #e8101f 55%, #b8000f 100%); }
+  .l1 { font-size:96px; letter-spacing:-1px; }
+  .l2 { font-size:128px; letter-spacing:10px; margin-top:6px; }
+  .l3 { font-size:144px; letter-spacing:4px; margin-top:6px; }
+</style>
+</head>
+<body>
+<div class="stage">
+  <div class="bg"></div>
+  <div class="rays"></div>
+  <div class="glow"></div>
+
+  <!-- TOP BAND -->
+  <div class="card" style="left:12px; top:-20px; width:300px; height:258px; transform:rotate(-6deg); z-index:3"><img src="file:///private/tmp/claude-501/-Users-user-----------/15553c2f-47ef-40e2-abfd-3a1c43bebaaf/scratchpad/tokuten-lp/assets/proof-line-500k.jpg" alt=""></div>
+  <div class="card" style="left:268px; top:-10px; width:170px; height:157px; transform:rotate(-5deg); z-index:5"><img src="file:///private/tmp/claude-501/-Users-user-----------/15553c2f-47ef-40e2-abfd-3a1c43bebaaf/scratchpad/tokuten-lp/assets/voice-dm2.png" alt="" style="width:170px;height:177px;margin-top:-20px"></div>
+  <div class="card" style="left:430px; top:-18px; width:400px; height:180px; transform:rotate(-7deg); z-index:7"><img src="file:///private/tmp/claude-501/-Users-user-----------/15553c2f-47ef-40e2-abfd-3a1c43bebaaf/scratchpad/tokuten-lp/assets/proof-buzzpost-2871.png" alt="" style="width:1000px;height:450px"></div>
+  <div class="card" style="left:372px; top:165px; width:400px; height:137px; transform:rotate(3deg); z-index:5"><img src="file:///private/tmp/claude-501/-Users-user-----------/15553c2f-47ef-40e2-abfd-3a1c43bebaaf/scratchpad/tokuten-lp/assets/voice-follow.png" alt="" style="width:400px;height:156px;margin-top:-17px"></div>
+  <div class="card" style="left:-30px; top:232px; width:400px; height:144px; transform:rotate(4deg); z-index:6"><img src="file:///private/tmp/claude-501/-Users-user-----------/15553c2f-47ef-40e2-abfd-3a1c43bebaaf/scratchpad/tokuten-lp/assets/proof-revenue-11375.jpg" alt=""></div>
+  <div class="card" style="left:300px; top:300px; width:470px; height:57px; transform:rotate(-2deg); z-index:8"><img src="file:///private/tmp/claude-501/-Users-user-----------/15553c2f-47ef-40e2-abfd-3a1c43bebaaf/scratchpad/tokuten-lp/assets/proof-live-4318.jpg" alt="" style="width:470px;height:110px"></div>
+
+  <!-- MIDDLE MARGINS -->
+  <div class="card" style="left:-40px; top:520px; width:420px; height:87px; transform:rotate(-3deg); z-index:9"><img src="file:///private/tmp/claude-501/-Users-user-----------/15553c2f-47ef-40e2-abfd-3a1c43bebaaf/scratchpad/tokuten-lp/assets/voice-dm3.png" alt="" style="width:420px;height:105px"></div>
+  <div class="card" style="left:650px; top:396px; width:150px; height:286px; transform:rotate(6deg); z-index:4"><img src="file:///private/tmp/claude-501/-Users-user-----------/15553c2f-47ef-40e2-abfd-3a1c43bebaaf/scratchpad/tokuten-lp/assets/proof-analytics.jpg" alt="" style="width:150px;height:300px;margin-top:-14px"></div>
+  <div class="card" style="left:596px; top:636px; width:340px; height:140px; transform:rotate(6deg); z-index:10"><img src="file:///private/tmp/claude-501/-Users-user-----------/15553c2f-47ef-40e2-abfd-3a1c43bebaaf/scratchpad/tokuten-lp/assets/analytics-87m.png" alt="" style="width:1400px;height:634px;margin:-475px 0 0 -30px"></div>
+
+  <!-- BOTTOM BAND -->
+  <div class="card" style="left:-24px; top:700px; width:360px; height:147px; transform:rotate(-4deg); z-index:10"><img src="file:///private/tmp/claude-501/-Users-user-----------/15553c2f-47ef-40e2-abfd-3a1c43bebaaf/scratchpad/tokuten-lp/assets/analytics-19m.png" alt="" style="width:1500px;height:679px;margin:-476px 0 0 -391px"></div>
+  <div class="card" style="left:400px; top:760px; width:116px; height:132px; transform:rotate(-7deg); z-index:6"><img src="file:///private/tmp/claude-501/-Users-user-----------/15553c2f-47ef-40e2-abfd-3a1c43bebaaf/scratchpad/tokuten-lp/assets/voice-analytics.png" alt="" style="width:116px;height:250px;margin-top:-18px"></div>
+  <div class="card" style="left:-20px; top:880px; width:400px; height:190px; transform:rotate(5deg); z-index:11"><img src="file:///private/tmp/claude-501/-Users-user-----------/15553c2f-47ef-40e2-abfd-3a1c43bebaaf/scratchpad/tokuten-lp/assets/proof-line-500k.jpg" alt="" style="width:400px;height:343px;margin-top:-146px"></div>
+  <div class="card" style="left:380px; top:885px; width:220px; height:142px; transform:rotate(-4deg); z-index:9"><img src="file:///private/tmp/claude-501/-Users-user-----------/15553c2f-47ef-40e2-abfd-3a1c43bebaaf/scratchpad/tokuten-lp/assets/voice-dm4.png" alt=""></div>
+  <div class="card" style="left:580px; top:860px; width:190px; height:149px; transform:rotate(7deg); z-index:11"><img src="file:///private/tmp/claude-501/-Users-user-----------/15553c2f-47ef-40e2-abfd-3a1c43bebaaf/scratchpad/tokuten-lp/assets/voice-dm1.png" alt="" style="width:190px;height:163px"></div>
+
+  <div class="vignette"></div>
+  <div class="title">
+    <div class="line gold l1"><div class="o">0→1達成の声</div><div class="s">0→1達成の声</div><div class="f">0→1達成の声</div></div>
+    <div class="line red l2"><div class="o">収益報告</div><div class="s">収益報告</div><div class="f">収益報告</div></div>
+    <div class="line gold l3"><div class="o">続々!!</div><div class="s">続々!!</div><div class="f">続々!!</div></div>
+  </div>
+</div>
+</body>
+</html>
