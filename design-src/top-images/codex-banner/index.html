@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>codex-1day-banner</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Noto+Sans+JP:wght@700;900&display=block" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1040px;height:1040px;overflow:hidden;background:#000}
+body{position:relative;font-family:"Noto Sans JP",sans-serif;color:#fff}
+
+/* ---------- background ---------- */
+#bg{position:absolute;inset:0;overflow:hidden;z-index:0;
+  background:
+    radial-gradient(ellipse 70% 40% at 50% 6%, rgba(255,190,60,.30), transparent 70%),
+    radial-gradient(ellipse 70% 32% at 50% 52%, rgba(255,170,40,.20), transparent 70%),
+    radial-gradient(ellipse 90% 30% at 50% 104%, rgba(190,40,20,.26), transparent 70%),
+    #000;}
+.bk{position:absolute;border-radius:50%;
+  background:radial-gradient(circle at 40% 40%, rgba(255,235,170,.95), rgba(255,190,70,.55) 45%, rgba(255,160,30,0) 72%);
+  filter:blur(1px)}
+.st{position:absolute;filter:drop-shadow(0 0 7px rgba(255,220,120,.95))}
+.st::before{content:"";position:absolute;inset:0;
+  background:radial-gradient(circle,#fff 0 18%,#fff2b0 45%,rgba(255,230,150,.85) 100%);
+  clip-path:polygon(50% 0,57% 43%,100% 50%,57% 57%,50% 100%,43% 57%,0 50%,43% 43%)}
+.st::after{content:"";position:absolute;inset:36%;border-radius:50%;background:radial-gradient(circle,#fff,rgba(255,255,255,0) 70%)}
+#vig{position:absolute;inset:0;z-index:1;background:radial-gradient(ellipse 75% 75% at 50% 50%, transparent 55%, rgba(0,0,0,.75) 100%)}
+#frame{position:absolute;inset:26px;z-index:1;border-radius:22px;
+  border:3px solid transparent;
+  background:linear-gradient(180deg,rgba(255,242,168,.85),rgba(245,183,27,.7) 40%,rgba(138,75,0,.6) 70%,rgba(255,215,92,.85)) border-box;
+  -webkit-mask:linear-gradient(#000 0 0) padding-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;
+  opacity:.75}
+
+/* ---------- gold 3D text ---------- */
+.gold{position:relative;display:inline-block;font-family:"Dela Gothic One","Noto Sans JP",sans-serif;font-weight:400;line-height:1.05;white-space:nowrap;
+  filter:drop-shadow(0 0 16px rgba(255,190,60,.35))}
+.gold .gt{position:relative;z-index:3;display:inline-block;
+  background:linear-gradient(180deg,#fff9d6 0%,#ffe66a 20%,#ffc51a 42%,#ef9400 58%,#ffd54a 76%,#c96a00 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent}
+.gold::before{content:attr(data-t);position:absolute;left:0;top:0;z-index:2;color:#fff;-webkit-text-stroke:var(--st,8px) #fff}
+.gold::after{content:attr(data-t);position:absolute;left:0;top:0;z-index:1;color:#000;-webkit-text-stroke:calc(var(--st,8px) + 5px) #000;
+  text-shadow:var(--ex)}
+
+/* ---------- layout ---------- */
+.row{position:absolute;left:0;width:1040px;text-align:center;z-index:3}
+
+/* top label */
+#top{top:78px}
+#top .lab{display:inline-block;font-family:"Noto Sans JP",sans-serif;font-weight:700;font-size:34px;letter-spacing:.08em;color:#ffe08a;
+  padding:12px 34px;border-radius:999px;border:2px solid rgba(255,215,92,.7);background:rgba(0,0,0,.55);
+  text-shadow:0 2px 0 #000;box-shadow:0 0 22px rgba(255,190,60,.25)}
+
+/* rule */
+.rule{position:absolute;left:180px;width:680px;height:3px;z-index:3;
+  background:linear-gradient(90deg,transparent,#ffd75c 30%,#fff3b0 50%,#ffd75c 70%,transparent)}
+
+/* sub line */
+#sub{top:566px}
+#sub .t{display:inline-block;font-family:"Dela Gothic One","Noto Sans JP",sans-serif;font-weight:400;font-size:74px;line-height:1;color:#fff;letter-spacing:.02em;
+  text-shadow:0 4px 0 #000,0 8px 0 #000,0 0 22px rgba(255,190,60,.4)}
+
+/* bottom */
+#dur{top:748px}
+#dur .t{display:inline-block;font-family:"Noto Sans JP",sans-serif;font-weight:900;font-size:44px;line-height:1;color:#111;letter-spacing:.04em;
+  padding:16px 44px;border-radius:999px;background:linear-gradient(180deg,#fff3b0,#f7c531 45%,#e39a00);
+  box-shadow:0 0 0 4px #000,0 0 0 7px #ffd75c,0 10px 26px rgba(0,0,0,.8)}
+
+#btn{position:absolute;left:120px;top:858px;width:800px;height:110px;border-radius:28px;z-index:5;
+  background:linear-gradient(180deg,#ff6a5a 0%,#f21b1b 45%,#b40000 100%);
+  border:7px solid #ffd54a;box-shadow:0 0 0 4px #7a4a00,0 0 0 7px #ffe98a,0 12px 0 #5a0000,0 20px 36px rgba(0,0,0,.9),0 0 46px rgba(255,80,40,.45);
+  display:flex;align-items:center;justify-content:center;overflow:hidden}
+#btn::before{content:"";position:absolute;left:0;right:0;top:0;height:46%;background:linear-gradient(180deg,rgba(255,255,255,.45),rgba(255,255,255,.05));border-radius:20px 20px 60% 60%}
+#btn .t{position:relative;font-family:"Noto Sans JP",sans-serif;font-weight:900;font-size:50px;color:#fff;white-space:nowrap;letter-spacing:.02em;display:flex;align-items:center;
+  text-shadow:0 4px 0 #6a0000,0 0 14px rgba(0,0,0,.6)}
+#btn .t::before{content:"";display:inline-block;width:0;height:0;border-style:solid;border-width:20px 0 20px 34px;border-color:transparent transparent transparent #ffe98a;margin-right:18px;
+  filter:drop-shadow(0 3px 0 #6a0000)}
+</style>
+</head>
+<body>
+<div id="bg"></div>
+<div id="vig"></div>
+<div id="frame"></div>
+
+<div class="row" id="top"><span class="lab">Codex研究ラボからお越しの方へ</span></div>
+
+<div class="rule" style="top:172px"></div>
+
+<div class="row" style="top:214px">
+  <span class="gold" data-t="友だち追加から" style="font-size:118px;letter-spacing:-.01em;--st:8px;--ex:0 5px 0 #000,0 10px 0 #000,0 15px 0 #000,0 22px 22px rgba(0,0,0,.9)">友だち追加から</span>
+</div>
+<div class="row" style="top:366px">
+  <span class="gold" data-t="1日間限定" style="font-size:170px;letter-spacing:.01em;--st:10px;--ex:0 6px 0 #000,0 12px 0 #000,0 18px 0 #000,0 24px 0 #000,0 32px 26px rgba(0,0,0,.95)">1日間限定</span>
+</div>
+
+<div class="row" id="sub"><span class="t">セミナー授業 開講！</span></div>
+
+<div class="rule" style="top:690px"></div>
+
+<div class="row" id="dur"><span class="t">約5分の動画授業</span></div>
+
+<div id="btn"><div class="t">タップして受講する</div></div>
+
+<script>
+(function(){
+  document.querySelectorAll(".gold").forEach(function(el){var t=el.textContent;el.textContent="";var sp=document.createElement("span");sp.className="gt";sp.textContent=t;el.appendChild(sp);});
+  var bg=document.getElementById('bg');
+  var seed=11;function r(){seed=(seed*9301+49297)%233280;return seed/233280}
+  function rnd(a,b){return a+r()*(b-a)}
+  for(var i=0;i<70;i++){
+    var d=document.createElement('div');d.className='bk';
+    var big=r()<.3;
+    var s=big?rnd(60,140):rnd(8,30);
+    d.style.width=d.style.height=s+'px';
+    d.style.left=(r()*1040-s/2)+'px';d.style.top=(r()*1040-s/2)+'px';
+    d.style.opacity=(big?rnd(.22,.4):rnd(.5,.85)).toFixed(2);
+    if(big)d.style.filter='blur('+rnd(3,8)+'px)';
+    bg.appendChild(d);
+  }
+  for(var j=0;j<36;j++){
+    var e=document.createElement('div');e.className='st';
+    var huge=j<3;
+    var sz=huge?rnd(80,120):rnd(16,54);e.style.width=e.style.height=sz+'px';
+    e.style.left=(r()*1040-sz/2)+'px';e.style.top=(r()*1040-sz/2)+'px';
+    e.style.opacity=(huge?.3:rnd(.5,.9)).toFixed(2);e.style.transform='rotate('+rnd(-20,20)+'deg)';
+    bg.appendChild(e);
+  }
+})();
+</script>
+</body>
+</html>
