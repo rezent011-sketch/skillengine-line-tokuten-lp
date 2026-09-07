@@ -615,3 +615,64 @@ footer .disc { text-align: left; line-height: 1.75; margin-bottom: 8px; }
 
 /* 2026-09-03: ヒーローの「実績報告」画像を外したので、残った1枚は全幅に */
 .proofs figure:only-child { grid-column: 1 / -1; }
+
+/* ── codex/ (2026-09-07 追加): Codex研究ラボ向け 動画授業ページ専用。接頭辞 .cx- のみ。他ページには影響しない ── */
+.cx-lead {
+  margin: 0 0 8px;
+  font-size: 14.5px; font-weight: 800; line-height: 1.6;
+  text-align: center; color: var(--ink);
+}
+.cx-video-wrap {
+  position: relative;
+  margin: 12px 0 0;
+  aspect-ratio: 16 / 9;
+  border-radius: 16px; overflow: hidden;
+  background: #0b0b0d;
+  box-shadow: 0 0 0 2px #eab308, 0 14px 30px rgba(15,23,42,.35);
+}
+.cx-video-wrap video {
+  display: block; width: 100%; height: 100%;
+  object-fit: contain; background: #0b0b0d;
+}
+/* .cx-play: ポスター画像（assets/codex-lesson-poster.jpg）に再生ボタンが描き込んであるので、ここは透明のタップ領域だけ。二重表示にしない */
+.cx-play {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  display: block;
+  margin: 0; padding: 0; border: 0;
+  background: transparent;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+.cx-play:active { background: rgba(0,0,0,.12); }
+.cx-unavail {
+  position: absolute; inset: 0;
+  display: grid; place-content: center; justify-items: center;
+  padding: 16px; text-align: center;
+  background: rgba(11,11,13,.93);
+  color: #fde68a; font-size: 17px; font-weight: 900; line-height: 1.6;
+}
+.cx-unavail small { display: block; margin-top: 4px; font-size: 12px; font-weight: 700; color: #cbd5e1; }
+/* display を指定しているので UA の [hidden]{display:none} に勝ってしまう。hidden 属性を確実に効かせる */
+.cx-play[hidden], .cx-unavail[hidden] { display: none; }
+.cx-hint {
+  margin: 10px 0 0; text-align: center;
+  font-size: 12.5px; font-weight: 800; line-height: 1.55; color: var(--muted);
+}
+.cx-hint .cx-hint-done { display: none; color: #15803d; }
+.cx-hint .cx-hint-unavail, .cx-hint .cx-hint-over { display: none; }
+.cx-hint.is-done .cx-hint-live, .cx-hint.is-unavail .cx-hint-live, .cx-hint.is-over .cx-hint-live { display: none; }
+.cx-hint.is-done .cx-hint-done { display: inline; }
+.cx-hint.is-unavail .cx-hint-unavail { display: inline; }
+.cx-hint.is-over .cx-hint-over { display: inline; }
+.cx-bonus-note {
+  margin: 12px 0 0;
+  padding: 12px 14px;
+  text-align: center;
+  background: linear-gradient(180deg, #fffbeb, #fff7ed);
+  border: 2px solid #f59e0b;
+  border-radius: 14px;
+  box-shadow: 0 8px 18px rgba(245,158,11,.18);
+}
+.cx-bonus-note p { margin: 0; font-size: 14px; font-weight: 800; line-height: 1.7; color: #1e1b4b; }
+.cx-bonus-note b { color: var(--pink); font-size: 15px; }
+.cx-notes { margin-top: 12px; }
