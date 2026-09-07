@@ -20,7 +20,7 @@
 
 ## `codex/` を触るときの注意
 
-- 動画URL は `codex/index.html` 内の `var HLS_SRC`。差し替えるときは配信側で新しい slug を作ってから。
+- 動画URL は `codex/lesson.js` 内の `var HLS_SRC`（HTMLから分離済み）。差し替えるときは配信側で新しい slug を作ってから。
 - 再生分岐は `canPlayType` だけで判定しない。Chrome も "maybe" を返すため、Apple 系の UA 判定と組み合わせる（過去に本番障害あり）。
 - `style.v2.css` 末尾の `.cx-` ブロックにある `.cx-play[hidden], .cx-unavail[hidden] { display:none }` を消さない（`hidden` 属性が効かなくなる）。
 - タイマーは「一度切れたら開き直しても0のまま」。リセットする実装に戻さない。

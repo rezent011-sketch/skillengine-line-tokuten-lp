@@ -3,56 +3,53 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <meta name="theme-color" content="#e8f4ff" />
+  <meta name="theme-color" content="#f7f6f2" />
   <title>スキルエンジン｜Codex研究ラボ セミナー授業</title>
-  <meta name="description" content="Codex研究ラボからお越しの方へ。友だち追加から1日間限定のセミナー授業（約5分の動画）。最後まで見た方にだけ追加特典のご案内が出ます。お渡しは個別面談のあとです。" />
+  <meta name="description" content="Codex研究ラボからお越しの方へ。このページを初めて開いてから24時間限定の動画授業。視聴後に追加特典をご案内します。特典は無料の個別面談のあとにお渡しします。" />
   <meta name="robots" content="noindex" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;800;900&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../style.v2.css?v=202609071600" />
+  <link rel="stylesheet" href="../style.v2.css?v=20260907-codex-review-1" />
 </head>
-<body>
-<div class="page">
-  <header class="hero">
-    <span class="sp s1"></span><span class="sp s2"></span><span class="sp s3"></span>
-    <span class="sp s4"></span><span class="sp s5"></span>
-    <div class="brand"><span class="dot"></span> スキルエンジン</div>
-    <span class="chip">Codex研究ラボからお越しの方へ</span>
-    <h1>友だち追加から<br><span class="em2">1日間限定</span><br><span class="em-gold">セミナー授業</span> 開講</h1>
-    <p class="cx-lead">約5分の動画授業です。<br>最後まで見た方にだけ、この下に<span class="em-gold">追加特典</span>のご案内が出ます</p>
+<body class="cx-body">
+<a class="cx-skip" href="#main">授業の内容へ移動</a>
+<div class="page cx-page">
+  <header class="cx-masthead"><div class="brand"><span class="dot" aria-hidden="true"></span>スキルエンジン</div><span class="cx-member-label">友だち追加特典</span></header>
+  <main id="main">
+  <section class="hero cx-hero" aria-labelledby="lessonHeading">
+    <p class="cx-eyebrow">Codex研究ラボからお越しの方へ</p>
+    <h1 id="lessonHeading"><span class="cx-title-limit">1日間限定の</span><br>セミナー授業</h1>
+    <p class="cx-lead">まずは、約5分の動画から。<br>最後までご覧いただいた方に、<br><strong>追加特典をご案内します。</strong></p>
 
-    <div class="timer" id="timer">
-      <div class="cap"><span class="cap-live">セミナー授業 受付終了まで</span><span class="cap-over">受付は終了しました</span></div>
+    <div class="cx-video-wrap" id="videoWrap">
+      <video id="lesson" playsinline webkit-playsinline preload="metadata" poster="../assets/codex-lesson-poster.jpg" aria-label="Codex研究ラボのセミナー授業" aria-describedby="hint"></video>
+      <button type="button" class="cx-play" id="playBtn" aria-label="セミナー授業を再生する"></button>
+      <div class="cx-unavail" id="unavail" hidden><span>動画を読み込めませんでした</span><small>通信環境をご確認のうえ、もう一度お試しください。</small><button type="button" class="cx-retry" id="retryBtn">もう一度読み込む</button></div>
+      <div class="cx-unavail" id="closed" hidden><span>視聴期間は終了しました</span><small>無料の個別相談は引き続きご予約いただけます。</small></div>
+    </div>
+    <p class="cx-video-status" id="videoStatus" role="status" aria-live="polite" aria-atomic="true"></p>
+    <p class="cx-hint" id="hint"><span class="cx-hint-live">視聴後、この下に追加特典が表示されます。</span><span class="cx-hint-done">視聴が完了しました。下の追加特典をご覧ください。</span><span class="cx-hint-unavail">再試行、または下のボタンから無料の個別相談をご予約いただけます。</span><span class="cx-hint-over">無料の個別相談は、下のボタンからご予約いただけます。</span></p>
+
+    <div class="timer cx-timer" id="timer" role="timer" aria-label="動画の視聴期限までの残り時間" aria-live="off">
+      <div class="cap"><span class="cap-live">動画の視聴期限まで</span><span class="cap-over">視聴期間は終了しました</span></div>
       <div class="row">
-        <div class="box"><span class="n" data-u="h">24</span><span class="u">時間</span></div>
-        <div class="colon">:</div>
-        <div class="box"><span class="n" data-u="m">00</span><span class="u">分</span></div>
-        <div class="colon">:</div>
+        <div class="box"><span class="n" data-u="h">24</span><span class="u">時間</span></div><span class="colon" aria-hidden="true">:</span>
+        <div class="box"><span class="n" data-u="m">00</span><span class="u">分</span></div><span class="colon" aria-hidden="true">:</span>
         <div class="box"><span class="n" data-u="s">00</span><span class="u">秒</span></div>
       </div>
     </div>
+    <p class="cx-deadline-note">このページを初めて開いてから24時間</p>
+    <ol class="cx-flow" aria-label="特典を受け取るまでの流れ"><li><span>01</span>動画を視聴</li><li><span>02</span>特典を確認</li><li><span>03</span>無料面談を予約</li></ol>
+  </section>
 
-    <!-- ══ 動画授業 ══ -->
-    <div class="cx-video-wrap" id="videoWrap">
-      <video id="lesson" playsinline webkit-playsinline preload="metadata" poster="../assets/codex-lesson-poster.jpg"></video>
-      <button type="button" class="cx-play" id="playBtn" aria-label="タップして再生"></button>
-      <div class="cx-unavail" id="unavail" hidden>動画は準備中です<small>準備ができ次第、このページでご覧いただけます</small></div>
-      <div class="cx-unavail" id="closed" hidden>受付は終了しました<small>個別相談のご予約は引き続き可能です</small></div>
-    </div>
-    <p class="cx-hint" id="hint"><span class="cx-hint-live">最後まで見ると、この下に追加特典のご案内が表示されます</span><span class="cx-hint-done">視聴完了。この下に追加特典のご案内があります ↓</span><span class="cx-hint-unavail">動画は準備中です。個別相談のご予約は下のボタンからどうぞ ↓</span><span class="cx-hint-over">受付は終了しました。個別相談のご予約は下のボタンからどうぞ ↓</span></p>
-  </header>
-
-  <!-- ══ 追加特典（視聴完了まで hidden） ══ -->
-  <section class="sec" id="bonus" hidden>
-    <hr class="line" style="margin:0 0 18px" />
-    <h2>動画を見終えた方へ<br><span class="em-gold">さらに追加特典</span>をご用意</h2>
-    <div class="cx-bonus-note">
-      <p>個別面談（費用<span class="em-free">無料</span>）にお越しいただいた方に、<span class="em-gold">20大特典</span>をお渡しします。<br><b>この場では配布しません</b></p>
-    </div>
-    <p class="sec-lead" style="margin-top:14px">SNS運用 01–10 ／ AI社員構築 11–20</p>
-    <div class="cards">
-      <article class="card"><div class="no">01</div><h3>一週間SNS投稿カレンダー</h3><p>1週間分の投稿枠を埋めるカレンダー。</p></article>
+  <section class="sec cx-bonus" id="bonus" hidden aria-labelledby="bonusHeading">
+    <p class="cx-eyebrow">ご視聴ありがとうございます</p>
+    <h2 id="bonusHeading" tabindex="-1">次の一歩に使える、<br><span class="em-gold">20大特典</span>をあなたへ。</h2>
+    <div class="cx-bonus-note"><p>無料の個別面談にお越しいただいた方に、<br>20大特典をお渡しします。</p><p><b>特典のお渡しは面談後です。</b><br>このページでは配布していません。</p></div>
+    <div class="cta-inline cx-bonus-cta"><a class="cta" href="https://liff.line.me/2009133356-u7JFBVtz?calendar_salon_id=26861&amp;ts=1788082704" ><span class="txt"><span data-cta-label>プレゼントを受け取る</span><small data-cta-note>無料の個別面談を予約・特典は面談後にお渡し</small></span><span class="arrow" aria-hidden="true">→</span></a></div>
+    <div class="cx-category"><h3>SNS運用</h3><span>01 — 10</span></div>
+    <div class="cards"><article class="card"><div class="no">01</div><h3>一週間SNS投稿カレンダー</h3><p>1週間分の投稿枠を埋めるカレンダー。</p></article>
       <article class="card"><div class="no">02</div><h3>バズるフック50選</h3><p>冒頭で止める言い回しのストック。</p></article>
       <article class="card"><div class="no">03</div><h3>短形動画の構成テンプレ10本</h3><p>短い動画の型を10本。</p></article>
       <article class="card"><div class="no">04</div><h3>競合リサーチシート</h3><p>見る項目を一枚にまとめたシート。</p></article>
@@ -61,8 +58,9 @@
       <article class="card"><div class="no">07</div><h3>プロフィール改善チェックリスト</h3><p>プロフィールの抜け確認。</p></article>
       <article class="card"><div class="no">08</div><h3>ハッシュタグ／検索流入の設計シート</h3><p>検索とタグの置き方。</p></article>
       <article class="card"><div class="no">09</div><h3>SNSのKPIの見方</h3><p>数字の見方を短くまとめたガイド。</p></article>
-      <article class="card"><div class="no">10</div><h3>炎上回避ガイド</h3><p>投稿前に見る注意点。</p></article>
-      <article class="card"><div class="no">11</div><h3>AI社員の役割設計シート</h3><p>誰に何を任せるかを書くシート。</p></article>
+      <article class="card"><div class="no">10</div><h3>炎上回避ガイド</h3><p>投稿前に見る注意点。</p></article></div>
+    <div class="cx-category"><h3>AI社員構築</h3><span>11 — 20</span></div>
+    <div class="cards"><article class="card"><div class="no">11</div><h3>AI社員の役割設計シート</h3><p>誰に何を任せるかを書くシート。</p></article>
       <article class="card"><div class="no">12</div><h3>Cursor/Claude即戦プロンプト15</h3><p>すぐ使えるプロンプト15。</p></article>
       <article class="card"><div class="no">13</div><h3>司令塔×専門Botの組織図テンプレ</h3><p>司令塔と専門の分け方。</p></article>
       <article class="card"><div class="no">14</div><h3>OpenClaw自動化導入チェックリスト</h3><p>導入前に潰す項目。</p></article>
@@ -71,206 +69,26 @@
       <article class="card"><div class="no">17</div><h3>動画切り抜き指示テンプレ</h3><p>切り抜き担当に渡す指示。</p></article>
       <article class="card"><div class="no">18</div><h3>LINEエルメ導線設計図</h3><p>公式LINEの導線を一枚に。</p></article>
       <article class="card"><div class="no">19</div><h3>企業AI顧問の初回診断シート</h3><p>初回で聞く項目。</p></article>
-      <article class="card"><div class="no">20</div><h3>スキルエンジン受講前診断</h3><p>受講前に現状を書く診断。</p></article>
-    </div>
-    <div class="cta-inline" style="margin-top:16px">
-      <a class="cta" href="https://liff.line.me/2009133356-u7JFBVtz?calendar_salon_id=26861&ts=1788082704">
-        <span class="txt">面談を予約して追加特典を受け取る<small>個別面談は費用無料</small></span>
-        <span class="arrow">›</span>
-      </a>
-    </div>
-    <p class="note left cx-notes">※20大特典は面談後のお渡しとなります<br>※成果には個人差があります</p>
+      <article class="card"><div class="no">20</div><h3>スキルエンジン受講前診断</h3><p>受講前に現状を書く診断。</p></article></div>
+    <div class="cta-inline cx-bonus-cta"><a class="cta" href="https://liff.line.me/2009133356-u7JFBVtz?calendar_salon_id=26861&amp;ts=1788082704" ><span class="txt"><span data-cta-label>プレゼントを受け取る</span><small data-cta-note>無料の個別面談を予約・特典は面談後にお渡し</small></span><span class="arrow" aria-hidden="true">→</span></a></div>
+    <p class="note left cx-notes">※20大特典は面談後のお渡しとなります。<br>※成果には個人差があります。</p>
   </section>
 
-  <hr class="line" />
-
-  <section class="sec faq">
-    <h2>よくある質問</h2>
-    <details open><summary>特典はいつ届きますか？</summary><p>個別面談のあとにお渡しします。面談でやることを明確にしてから、迷わず特典を最大限に活用できるようにするためです。このページから直接ダウンロードはできません。</p></details>
-    <details><summary>面談しないともらえませんか？</summary><p>お渡しは、個別面談のあとです。面談でやることを明確にしてから、迷わず特典を最大限に活用できるようにするためです。</p></details>
-    <details><summary>1日（24時間）を過ぎたら？</summary><p>セミナー授業の受付は、このページを開いてから1日間限定です。時間を過ぎると動画と追加特典のご案内は表示されませんが、個別相談のご予約は引き続き可能です。</p></details>
+  <section class="sec faq cx-faq" aria-labelledby="faqHeading">
+    <p class="cx-eyebrow">ご予約の前に</p>
+    <h2 id="faqHeading">よくある質問</h2>
+    <details open><summary>特典はいつ受け取れますか？</summary><p>個別面談のあとにお渡しします。面談で取り組むことを明確にしてから、特典を活用していただくためです。このページから直接ダウンロードはできません。</p></details>
+    <details><summary>面談しないともらえませんか？</summary><p>特典のお渡しには個別面談へのご参加が必要です。面談では、あなたの現状と取り組みたいことを一緒に整理します。</p></details>
+    <details><summary>1日（24時間）を過ぎたら？</summary><p>このページを初めて開いてから24時間が経つと、動画と追加特典のご案内は表示されなくなります。無料の個別相談は引き続きご予約いただけます。</p></details>
     <details><summary>Codexを使ったことがなくても大丈夫？</summary><p>大丈夫です。面談では、あなたの現状を一緒に整理するところから始めます。コードが書けなくても問題ありません。</p></details>
-    <details><summary>費用はかかりますか？</summary><p>費用は無料です。現役AI×SNSマーケターからの直接指導です。</p></details>
+    <details><summary>個別面談に費用はかかりますか？</summary><p>個別面談は無料です。</p></details>
   </section>
-
-  <footer>
-    <p class="disc">※本ページに掲載の実績・金額は個人の成果であり、同等の結果を保証するものではありません。成果には個人差があります。</p>
-    <p><a href="../privacy.html">プライバシーポリシー</a></p>
-    <p>Copyright(c) 2026 ガガロット All Rights Reserved.</p>
-  </footer>
+  <noscript><div class="cx-fallback"><p>動画の視聴にはJavaScriptを有効にしてください。無料の個別相談は、こちらからご予約いただけます。</p><a href="https://liff.line.me/2009133356-u7JFBVtz?calendar_salon_id=26861&amp;ts=1788082704">無料の個別相談を予約する →</a></div></noscript>
+  <div class="cx-fallback" id="scriptFallback" hidden><p>ページを読み込めませんでした。再読み込みしてお試しください。無料の個別相談は、こちらからご予約いただけます。</p><a href="https://liff.line.me/2009133356-u7JFBVtz?calendar_salon_id=26861&amp;ts=1788082704">無料の個別相談を予約する →</a></div>
+  </main>
+  <footer><p class="disc">※本ページに掲載の実績・金額は個人の成果であり、同等の結果を保証するものではありません。成果には個人差があります。</p><p><a href="../privacy.html">プライバシーポリシー</a></p><p>Copyright(c) 2026 ガガロット All Rights Reserved.</p></footer>
 </div>
-
-<div class="sticky" id="sticky" hidden>
-  <a class="cta" href="https://liff.line.me/2009133356-u7JFBVtz?calendar_salon_id=26861&ts=1788082704">
-    <span class="txt">面談を予約して追加特典を受け取る<small>個別面談は費用無料</small></span>
-    <span class="arrow">›</span>
-  </a>
-</div>
-
-<script>
-(function () {
-  // このページ専用のタイマー。最初に開いた時点から24時間。24時間を過ぎた端末では開き直しても0のまま。
-  var KEY = "skillengine-lp-codex-24h";
-  var SPAN = 24 * 60 * 60 * 1000;
-  var end = null;
-  try { end = localStorage.getItem(KEY); } catch (e) {}
-  if (!end) {
-    end = String(Date.now() + SPAN);
-    try { localStorage.setItem(KEY, end); } catch (e) {}
-  }
-  end = Number(end);
-  var hs = document.querySelectorAll("[data-u]");
-  function pad(n) { return String(n).padStart(2, "0"); }
-  function tick() {
-    var left = Math.max(0, end - Date.now());
-    var over = left <= 0;
-    document.getElementById("timer").classList.toggle("is-over", over);
-    var h = Math.floor(left / 3600000);
-    var m = Math.floor((left % 3600000) / 60000);
-    var s = Math.floor((left % 60000) / 1000);
-    hs.forEach(function (el) {
-      var u = el.getAttribute("data-u");
-      el.textContent = pad(u === "h" ? h : u === "m" ? m : s);
-    });
-  }
-  tick();
-  setInterval(tick, 1000);
-})();
-
-(function () {
-  // 動画授業。HLS は Apple WebKit（iOS/iPadOS・macOS Safari）だけネイティブ再生、それ以外（Android Chrome / LINE内ブラウザ含む）は必ず hls.js。
-  // Chrome は canPlayType が "maybe" を返すのに実際は再生できないため、canPlayType だけで分岐しない。自動再生はしない。
-  // 注意: hls.js 経路は XHR で取得するため、配信元（autowebinar の /api/media/…）が
-  //   Access-Control-Allow-Origin: https://rezent011-sketch.github.io（+ OPTIONS / Range）を manifest・セグメント・key に返す必要がある。
-  //   これが無いと hls.js は manifestLoadError(fatal) になり「準備中」表示になる（iPhone のネイティブ再生だけ動く状態）。
-  var HLS_SRC = "https://autowebinar-eta.vercel.app/api/media/codex-lesson-v2/master.m3u8";
-  var HLS_JS  = "https://cdnjs.cloudflare.com/ajax/libs/hls.js/1.5.20/hls.min.js";
-  var WATCHED_KEY = "skillengine-lp-codex-watched";
-  // タイマー（24時間）を過ぎた端末では動画と追加特典案内を出さず、個別相談CTAだけ出す。文言「受付は終了しました」に合わせた挙動。
-  // 締め切らない運用にする場合は false にする。
-  var CLOSE_AFTER_TIMER = true;
-
-  var video   = document.getElementById("lesson");
-  var wrap    = document.getElementById("videoWrap");
-  var playBtn = document.getElementById("playBtn");
-  var unavail = document.getElementById("unavail");
-  var closed  = document.getElementById("closed");
-  var hint    = document.getElementById("hint");
-  var bonus   = document.getElementById("bonus");
-  var sticky  = document.getElementById("sticky");
-
-  var debug = location.hash === "#debug";
-
-  var revealed = false;
-  // reveal(save, ctaOnly): ctaOnly=true のときは固定CTAだけ出す（特典一覧は出さない）
-  function reveal(save, ctaOnly) {
-    if (revealed) return;
-    revealed = true;
-    if (!ctaOnly) {
-      bonus.hidden = false;
-      hint.classList.add("is-done");
-    }
-    sticky.hidden = false;
-    if (save) { try { localStorage.setItem(WATCHED_KEY, "1"); } catch (e) {} }
-  }
-
-  function setHint(state) {
-    hint.classList.remove("is-done", "is-unavail", "is-over");
-    if (state) hint.classList.add(state);
-  }
-
-  // ── 締切後（タイマー IIFE が先に tick() 済みで is-over が付いている） ──
-  var timerEl = document.getElementById("timer");
-  var isOver = CLOSE_AFTER_TIMER && !debug && timerEl && timerEl.classList.contains("is-over");
-  if (isOver) {
-    wrap.classList.add("is-closed");
-    playBtn.hidden = true;
-    closed.hidden = false;
-    setHint("is-over");
-    reveal(false, true);
-    return;
-  }
-
-  // 再オープン時: 視聴済みフラグがあれば最初から表示
-  var watched = null;
-  try { watched = localStorage.getItem(WATCHED_KEY); } catch (e) {}
-  if (watched === "1") reveal(false);
-
-  // デバッグ分岐: URL に #debug を付けたときだけ特典を最初から表示する（保存はしない。本番の判定には影響しない）
-  if (debug) reveal(false);
-
-  // 動画が用意できていないとき: 「準備中」を出し、行き止まりにならないよう固定CTAだけは出す（視聴済みフラグは保存しない）
-  function showUnavailable() {
-    if (wrap.classList.contains("is-unavail")) return;
-    wrap.classList.add("is-unavail");
-    playBtn.hidden = true;
-    unavail.hidden = false;
-    try { video.removeAttribute("controls"); } catch (e) {}
-    if (!revealed) setHint("is-unavail");
-    reveal(false, true);
-  }
-
-  // 視聴完了判定: ended、または 95% まで再生
-  function onProgress() {
-    if (video.duration && isFinite(video.duration) && video.currentTime / video.duration >= 0.95) reveal(true);
-  }
-  video.addEventListener("timeupdate", onProgress);
-  video.addEventListener("ended", function () {
-    reveal(true);
-    try { bonus.scrollIntoView({ behavior: "smooth", block: "start" }); } catch (e) {}
-  });
-
-  // ポスターに描かれた再生ボタンを使うので、.cx-play は透明のタップ領域。タップで play。
-  // 一度再生したらタップ領域を消し、ネイティブコントロール（一時停止・シーク）を付ける。
-  playBtn.addEventListener("click", function () {
-    var p = video.play();
-    if (p && p.catch) p.catch(function () {});
-  });
-  function onStarted() {
-    playBtn.hidden = true;
-    try { video.setAttribute("controls", ""); } catch (e) {}
-  }
-  video.addEventListener("play", onStarted);
-  video.addEventListener("playing", onStarted);
-
-  // ネイティブ側のエラー（Safari で m3u8 が 404 など）
-  video.addEventListener("error", function () { showUnavailable(); });
-
-  var ua = navigator.userAgent || "";
-  var isApple = /iPad|iPhone|iPod/.test(ua)
-    || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1)
-    || (/Safari/.test(ua) && !/Chrome|Chromium|CriOS|FxiOS|Edg|Android/.test(ua));
-  var canNative = false;
-  try { canNative = isApple && !!video.canPlayType("application/vnd.apple.mpegurl"); } catch (e) {}
-
-  if (canNative) {
-    video.src = HLS_SRC;
-    // ネイティブ再生でもマニフェスト取得の可否を先に確かめ、無ければ「準備中」にする
-    try {
-      fetch(HLS_SRC, { method: "GET", cache: "no-store" })
-        .then(function (r) { if (!r.ok) showUnavailable(); })
-        .catch(function () { /* CORS 等で確かめられない場合は video 側の error に任せる */ });
-    } catch (e) {}
-  } else {
-    var s = document.createElement("script");
-    s.src = HLS_JS;
-    s.async = true;
-    s.onerror = showUnavailable;
-    s.onload = function () {
-      if (!window.Hls || !window.Hls.isSupported()) { showUnavailable(); return; }
-      var hls = new window.Hls({ enableWorker: true });
-      hls.on(window.Hls.Events.ERROR, function (_evt, data) {
-        if (data && data.fatal) {
-          try { hls.destroy(); } catch (e) {}
-          showUnavailable();
-        }
-      });
-      hls.loadSource(HLS_SRC);
-      hls.attachMedia(video);
-    };
-    document.head.appendChild(s);
-  }
-})();
-</script>
+<div class="sticky" id="sticky" hidden><a class="cta" href="https://liff.line.me/2009133356-u7JFBVtz?calendar_salon_id=26861&amp;ts=1788082704" ><span class="txt"><span data-cta-label>プレゼントを受け取る</span><small data-cta-note>無料の個別面談を予約・特典は面談後にお渡し</small></span><span class="arrow" aria-hidden="true">→</span></a></div>
+<script src="lesson.js?v=20260907-review-1" onerror="document.getElementById('scriptFallback').hidden=false"></script>
 </body>
 </html>
