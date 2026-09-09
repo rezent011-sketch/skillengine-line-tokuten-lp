@@ -802,3 +802,9 @@ footer .disc { text-align: left; line-height: 1.75; margin-bottom: 8px; }
 @media (prefers-reduced-motion: reduce) {
   .cx-body *, .cx-body *::before, .cx-body *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
 }
+
+/* codex/: 面談の実績行 */
+.cx-proof { margin: 6px 0 10px; text-align: center; font-size: 13.5px; font-weight: 800; line-height: 1.6; color: var(--ink); }
+.cx-proof b { color: var(--pink); font-size: 14.5px; }
+.cx-bonus-note p + p { margin-top: 8px; }
+.cx-bonus-note .cx-bonus-proof { font-size: 13px; }
