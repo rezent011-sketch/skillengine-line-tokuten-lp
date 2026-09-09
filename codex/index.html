@@ -143,7 +143,7 @@
   // 注意: hls.js 経路は XHR で取得するため、配信元（autowebinar の /api/media/…）が
   //   Access-Control-Allow-Origin: https://rezent011-sketch.github.io（+ OPTIONS / Range）を manifest・セグメント・key に返す必要がある。
   //   これが無いと hls.js は manifestLoadError(fatal) になり「準備中」表示になる（iPhone のネイティブ再生だけ動く状態）。
-  var HLS_SRC = "https://autowebinar-eta.vercel.app/api/media/codex-lesson-v2/master.m3u8";
+  var HLS_SRC = "https://autowebinar-eta.vercel.app/api/media/codex-lesson-v5c/master.m3u8";
   var HLS_JS  = "https://cdnjs.cloudflare.com/ajax/libs/hls.js/1.5.20/hls.min.js";
   var WATCHED_KEY = "skillengine-lp-codex-watched";
   // タイマー（24時間）を過ぎた端末では動画と追加特典案内を出さず、個別相談CTAだけ出す。文言「受付は終了しました」に合わせた挙動。
