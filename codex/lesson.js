@@ -6,7 +6,7 @@
   var SPAN = 24 * 60 * 60 * 1000;
   var CLOSE_AFTER_TIMER = true;
   // 新しい動画は配信確認後に別 slug へ変更する。同じ slug への上書きは禁止。
-  var HLS_SRC = "https://autowebinar-eta.vercel.app/api/media/codex-lesson-v2/master.m3u8";
+  var HLS_SRC = "https://autowebinar-eta.vercel.app/api/media/codex-lesson-v5c/master.m3u8";
   var HLS_JS = "https://cdnjs.cloudflare.com/ajax/libs/hls.js/1.5.20/hls.min.js";
   var LOAD_TIMEOUT = 15000;
 
