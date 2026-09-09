@@ -156,7 +156,9 @@
   }
 
   video.addEventListener("timeupdate", function () {
-    if (Number.isFinite(video.duration) && video.duration > 0 && video.currentTime / video.duration >= 0.95) markWatched();
+    // 再生3分（180秒）経過で特典を表示。動画が3分未満なら95%で表示
+    var threshold = (Number.isFinite(video.duration) && video.duration > 0) ? Math.min(180, video.duration * 0.95) : 180;
+    if (video.currentTime >= threshold) markWatched();
   });
   // 自動スクロールやフォーカス移動は行わず、読み進めている位置を保つ。
   video.addEventListener("ended", markWatched);
