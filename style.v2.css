@@ -685,3 +685,21 @@ footer .disc { text-align: left; line-height: 1.75; margin-bottom: 8px; }
 .cx-proof b { color: var(--pink); font-size: 14.5px; }
 .cx-bonus-note p + p { margin-top: 8px; }
 .cx-bonus-note .cx-bonus-proof { font-size: 13px; }
+
+/* codex/: ミュート自動再生中に重ねる「タップで音声オン」。下 44px はネイティブコントロールのために空ける */
+.cx-unmute {
+  position: absolute; left: 0; right: 0; top: 0; bottom: 44px;
+  display: grid; place-content: center;
+  margin: 0; padding: 0; border: 0; background: transparent;
+  cursor: pointer; -webkit-tap-highlight-color: transparent;
+}
+.cx-unmute span {
+  display: inline-block; padding: 10px 16px; border-radius: 999px;
+  background: rgba(11,11,13,.82); color: #fde68a;
+  font-size: 14px; font-weight: 900; letter-spacing: .02em; line-height: 1.2;
+  box-shadow: 0 0 0 2px #eab308, 0 6px 18px rgba(0,0,0,.35);
+  animation: cxPulse 1.6s ease-in-out infinite;
+}
+@keyframes cxPulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); } }
+@media (prefers-reduced-motion: reduce) { .cx-unmute span { animation: none; } }
+.cx-unmute[hidden] { display: none; }

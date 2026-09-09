@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;800;900&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../style.v2.css?v=202609091234" />
+  <link rel="stylesheet" href="../style.v2.css?v=202609091304" />
 </head>
 <body>
 <div class="page">
@@ -38,6 +38,7 @@
     <div class="cx-video-wrap" id="videoWrap">
       <video id="lesson" playsinline webkit-playsinline preload="metadata" poster="../assets/codex-lesson-poster.jpg"></video>
       <button type="button" class="cx-play" id="playBtn" aria-label="タップして再生"></button>
+      <button type="button" class="cx-unmute" id="unmuteBtn" hidden aria-label="音声をオンにする"><span>🔊 タップで音声オン</span></button>
       <div class="cx-unavail" id="unavail" hidden>動画は準備中です<small>準備ができ次第、このページでご覧いただけます</small></div>
       <div class="cx-unavail" id="closed" hidden>受付は終了しました<small>個別相談のご予約は引き続き可能です</small></div>
     </div>
@@ -155,6 +156,7 @@
   var video   = document.getElementById("lesson");
   var wrap    = document.getElementById("videoWrap");
   var playBtn = document.getElementById("playBtn");
+  var unmuteBtn = document.getElementById("unmuteBtn");
   var unavail = document.getElementById("unavail");
   var closed  = document.getElementById("closed");
   var hint    = document.getElementById("hint");
@@ -206,6 +208,7 @@
     if (wrap.classList.contains("is-unavail")) return;
     wrap.classList.add("is-unavail");
     playBtn.hidden = true;
+    unmuteBtn.hidden = true;
     unavail.hidden = false;
     try { video.removeAttribute("controls"); } catch (e) {}
     if (!revealed) setHint("is-unavail");
@@ -240,6 +243,33 @@
   video.addEventListener("play", onStarted);
   video.addEventListener("playing", onStarted);
 
+  // ページを開いたら自動再生する。ブラウザの方針で「音あり」の自動再生はできないため、
+  // ミュートで開始し「タップで音声オン」を重ねる。自動再生が拒否された端末（iOS 低電力モード等）では
+  // 従来どおりポスターのタップで音あり再生になる。受付終了・準備中のときは自動再生しない。
+  var autoplayTried = false;
+  function tryAutoplay() {
+    if (autoplayTried) return;
+    autoplayTried = true;
+    if (!closed.hidden || wrap.classList.contains("is-unavail")) return;
+    try { video.muted = true; video.setAttribute("muted", ""); } catch (e) {}
+    var p;
+    try { p = video.play(); } catch (e) { return; }
+    if (!p || !p.then) return;
+    p.then(function () {
+      unmuteBtn.hidden = false;
+    }).catch(function () {
+      // 自動再生が拒否された: ミュートを戻し、ポスターのタップ再生に任せる
+      try { video.muted = false; video.removeAttribute("muted"); } catch (e) {}
+    });
+  }
+  unmuteBtn.addEventListener("click", function () {
+    try { video.muted = false; video.removeAttribute("muted"); } catch (e) {}
+    unmuteBtn.hidden = true;
+    if (video.paused) { var p = video.play(); if (p && p.catch) p.catch(function () {}); }
+  });
+  // ネイティブコントロール側で音を出した場合もオーバーレイを消す
+  video.addEventListener("volumechange", function () { if (!video.muted) unmuteBtn.hidden = true; });
+
   // ネイティブ側のエラー（Safari で m3u8 が 404 など）
   video.addEventListener("error", function () { showUnavailable(); });
 
@@ -252,6 +282,7 @@
 
   if (canNative) {
     video.src = HLS_SRC;
+    tryAutoplay();
     // ネイティブ再生でもマニフェスト取得の可否を先に確かめ、無ければ「準備中」にする
     try {
       fetch(HLS_SRC, { method: "GET", cache: "no-store" })
@@ -272,6 +303,7 @@
           showUnavailable();
         }
       });
+      hls.on(window.Hls.Events.MANIFEST_PARSED, function () { tryAutoplay(); });
       hls.loadSource(HLS_SRC);
       hls.attachMedia(video);
     };
