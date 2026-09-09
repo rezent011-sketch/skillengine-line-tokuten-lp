@@ -246,20 +246,27 @@
   // ページを開いたら自動再生する。ブラウザの方針で「音あり」の自動再生はできないため、
   // ミュートで開始し「タップで音声オン」を重ねる。自動再生が拒否された端末（iOS 低電力モード等）では
   // 従来どおりポスターのタップで音あり再生になる。受付終了・準備中のときは自動再生しない。
+  // メディアの読み込みが始まる前に play() すると、その後の読み込みで play が中断（AbortError）されるため、
+  // loadedmetadata（メディアが付いた後）で呼ぶ。拒否（NotAllowedError）以外の失敗は canplay で一度だけ再試行。
   var autoplayTried = false;
   function tryAutoplay() {
     if (autoplayTried) return;
-    autoplayTried = true;
     if (!closed.hidden || wrap.classList.contains("is-unavail")) return;
+    autoplayTried = true;
     try { video.muted = true; video.setAttribute("muted", ""); } catch (e) {}
     var p;
     try { p = video.play(); } catch (e) { return; }
     if (!p || !p.then) return;
     p.then(function () {
-      unmuteBtn.hidden = false;
-    }).catch(function () {
-      // 自動再生が拒否された: ミュートを戻し、ポスターのタップ再生に任せる
-      try { video.muted = false; video.removeAttribute("muted"); } catch (e) {}
+      if (video.muted) unmuteBtn.hidden = false;
+    }).catch(function (err) {
+      if (err && err.name === "NotAllowedError") {
+        // 端末が自動再生を拒否: ミュートを戻し、ポスターのタップ再生（音あり）に任せる
+        try { video.muted = false; video.removeAttribute("muted"); } catch (e) {}
+      } else {
+        autoplayTried = false;
+        video.addEventListener("canplay", tryAutoplay, { once: true });
+      }
     });
   }
   unmuteBtn.addEventListener("click", function () {
@@ -281,8 +288,8 @@
   try { canNative = isApple && !!video.canPlayType("application/vnd.apple.mpegurl"); } catch (e) {}
 
   if (canNative) {
+    video.addEventListener("loadedmetadata", tryAutoplay, { once: true });
     video.src = HLS_SRC;
-    tryAutoplay();
     // ネイティブ再生でもマニフェスト取得の可否を先に確かめ、無ければ「準備中」にする
     try {
       fetch(HLS_SRC, { method: "GET", cache: "no-store" })
@@ -303,7 +310,7 @@
           showUnavailable();
         }
       });
-      hls.on(window.Hls.Events.MANIFEST_PARSED, function () { tryAutoplay(); });
+      video.addEventListener("loadedmetadata", tryAutoplay, { once: true });
       hls.loadSource(HLS_SRC);
       hls.attachMedia(video);
     };
