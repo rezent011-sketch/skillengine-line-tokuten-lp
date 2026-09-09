@@ -40,10 +40,10 @@
       <div class="cx-unavail" id="unavail" hidden>動画は準備中です<small>準備ができ次第、このページでご覧いただけます</small></div>
       <div class="cx-unavail" id="closed" hidden>受付は終了しました<small>個別相談のご予約は引き続き可能です</small></div>
     </div>
-    <p class="cx-hint" id="hint"><span class="cx-hint-live">最後まで見ると、この下に追加特典のご案内が表示されます</span><span class="cx-hint-done">視聴完了。この下に追加特典のご案内があります ↓</span><span class="cx-hint-unavail">動画は準備中です。個別相談のご予約は下のボタンからどうぞ ↓</span><span class="cx-hint-over">受付は終了しました。個別相談のご予約は下のボタンからどうぞ ↓</span></p>
+    <p class="cx-hint" id="hint"><span class="cx-hint-live">3分ほど見ると、この下に追加特典のご案内が表示されます</span><span class="cx-hint-done">視聴完了。この下に追加特典のご案内があります ↓</span><span class="cx-hint-unavail">動画は準備中です。個別相談のご予約は下のボタンからどうぞ ↓</span><span class="cx-hint-over">受付は終了しました。個別相談のご予約は下のボタンからどうぞ ↓</span></p>
   </header>
 
-  <!-- ══ 追加特典（視聴完了まで hidden） ══ -->
+  <!-- ══ 追加特典（再生3分まで hidden） ══ -->
   <section class="sec" id="bonus" hidden>
     <hr class="line" style="margin:0 0 18px" />
     <h2>動画を見終えた方へ<br><span class="em-gold">さらに追加特典</span>をご用意</h2>
@@ -210,9 +210,14 @@
     reveal(false, true);
   }
 
-  // 視聴完了判定: ended、または 95% まで再生
+  // 特典の表示判定: 再生 3 分（180秒）を過ぎたら、動画を止めずに下の続きを出す。
+  // 動画が 3 分未満の場合に備えて 95% 再生でも表示。ended でも表示（下の ended ハンドラ）。
+  var REVEAL_AT_SECONDS = 180;
   function onProgress() {
-    if (video.duration && isFinite(video.duration) && video.currentTime / video.duration >= 0.95) reveal(true);
+    var t = video.currentTime;
+    var d = video.duration;
+    var threshold = (d && isFinite(d)) ? Math.min(REVEAL_AT_SECONDS, d * 0.95) : REVEAL_AT_SECONDS;
+    if (t >= threshold) reveal(true);
   }
   video.addEventListener("timeupdate", onProgress);
   video.addEventListener("ended", function () {
