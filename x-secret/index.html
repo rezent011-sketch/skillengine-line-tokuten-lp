@@ -77,6 +77,9 @@
     .xs-apply-body { padding: 24px 20px 30px; }
     .xs-apply-guide { margin: 0 0 20px; font-size: 14px; text-align: center; }
     .xs-price { margin: 0 0 22px; font-size: 24px; font-weight: 900; text-align: center; line-height: 1.6; }
+    .xs-price del { position: relative; display: inline-block; font-size: 23px; white-space: nowrap; text-decoration: none; }
+    .xs-price del::before, .xs-price del::after { content: ""; position: absolute; left: -3%; top: 50%; width: 106%; height: 2px; background: #e00000; transform: rotate(12deg); }
+    .xs-price del::after { transform: rotate(-12deg); }
     .xs-price strong { color: #e00000; font-size: 38px; }
     .xs-price span { display: block; font-size: 18px; }
     .xs-offer-lead { margin: 0 0 16px; font-size: 14px; font-weight: 700; text-align: center; line-height: 1.8; }
@@ -133,7 +136,7 @@
         <h2 class="xs-apply-heading" id="applyTitle"><span class="xs-apply-eyebrow">完全オーダーメイド</span><span>個別ロードマップ作成会</span><span class="xs-apply-accent">審査申込みフォーム</span></h2>
         <div class="xs-apply-body">
           <p class="xs-apply-guide">下のボタンから、必要事項を入力して<br />お申し込みください。</p>
-          <p class="xs-price">参加費 <strong>0円</strong><span>無料でご参加いただけます（審査制）</span></p>
+          <p class="xs-price">参加費 <del>9,980円</del> → <strong>0円</strong><span>無料でご参加いただけます（審査制）</span></p>
           <h2 class="xs-sr-only" id="bonusTitle">個別ロードマップ作成会にご参加の方へ　豪華46大特典</h2>
           <img class="xs-section-image" src="../assets/x-secret-gifts-visual.jpg" alt="豪華46大特典" width="1536" height="1024" loading="lazy" decoding="async" />
           <p class="xs-offer-lead">個別ロードマップ作成会にご参加いただいた方に、46点の特典をまとめてお渡しします。</p>
