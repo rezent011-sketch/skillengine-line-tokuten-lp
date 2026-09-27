@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="theme-color" content="#e8f4ff" />
-  <title>スキルエンジン｜シークレットセミナー</title>
+  <title>スキルエンジン｜AI×SNS月100万シークレットセミナー</title>
   <meta name="description" content="LINE友だち限定で公開しているセミナー映像です。フォロワーが少ないうちから始められる、Xとアフィリエイトの考え方をお話ししています。" />
   <meta name="robots" content="noindex" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -12,7 +12,15 @@
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;800;900&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="../style.v2.css?v=202609271711" />
   <style>
-    .xs-title { font-size: clamp(23px, 7vw, 30px); }
+    .xs-hero { padding: 0 0 10px; }
+    .xs-title { margin: 0; line-height: 1; }
+    .xs-hero-image { width: 100%; height: auto; }
+    .xs-hero-copy { padding: 0 16px; }
+    .xs-sr-only {
+      position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+      overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0;
+    }
+    .xs-section-image { width: 100%; height: auto; margin: 16px 0; border-radius: 16px; }
     .xs-keep { white-space: nowrap; }
     .xs-subtitle { margin: 12px 0; font-size: 17px; font-weight: 800; line-height: 1.65; text-align: center; }
     .xs-lead { margin: 0; font-size: 13px; line-height: 1.85; }
@@ -85,18 +93,20 @@
 </head>
 <body>
 <div class="page">
-  <header class="hero">
-    <div class="brand"><span class="dot" aria-hidden="true"></span>スキルエンジン</div>
-    <span class="chip">LINE友だち限定公開</span>
-    <h1 class="xs-title">シークレットセミナー</h1>
-    <p class="xs-subtitle">フォロワーが少ないうちから始められる、Xとアフィリエイトの考え方</p>
-    <p class="xs-lead">セミナー映像を、LINE友だち限定で公開しています（約27分）。映像の中で、よくある質問（初心者でも大丈夫？ 怪しくない？）にもお答えしています。</p>
+  <header class="xs-hero">
+    <div class="brand xs-sr-only">スキルエンジン</div>
+    <span class="chip xs-sr-only">LINE友だち限定公開</span>
+    <h1 class="xs-title"><img class="xs-hero-image" src="../assets/x-secret-hero-visual.jpg" alt="AI×SNS月100万シークレットセミナー" width="1536" height="1024" fetchpriority="high" /></h1>
+    <div class="xs-hero-copy">
+      <p class="xs-subtitle">フォロワーが少ないうちから始められる、Xとアフィリエイトの考え方</p>
+      <p class="xs-lead">セミナー映像を、LINE友だち限定で公開しています（約27分）。映像の中で、よくある質問（初心者でも大丈夫？ 怪しくない？）にもお答えしています。</p>
+    </div>
   </header>
 
   <main>
     <div class="xs-watch">
       <div class="cx-video-wrap xs-video-wrap" id="videoWrap" tabindex="0" role="group" aria-label="動画の再生・一時停止">
-        <video id="lesson" muted playsinline webkit-playsinline preload="metadata" poster="../assets/x-secret-poster.jpg" aria-label="シークレットセミナー"></video>
+        <video id="lesson" muted playsinline webkit-playsinline preload="metadata" poster="../assets/x-secret-poster.jpg" aria-label="AI×SNS月100万シークレットセミナー"></video>
         <button type="button" class="xs-play" id="playBtn" aria-label="タップして再生"></button>
         <button type="button" class="cx-unmute xs-unmute" id="unmuteBtn" hidden aria-label="音声をオンにする"><span>🔊 タップで音声オン</span></button>
         <div class="xs-time" id="elapsed">0:00 / 26:39</div>
@@ -123,6 +133,7 @@
       <section class="sec" aria-labelledby="bonusTitle">
         <h2 id="bonusTitle">個別ロードマップ作成会に<span class="xs-keep">ご参加の方へ</span>　<span class="em-gold xs-keep">豪華46大特典</span></h2>
         <p class="sec-lead">個別ロードマップ作成会にご参加いただいた方に、46点の特典をまとめてお渡しします。</p>
+        <img class="xs-section-image" src="../assets/x-secret-bonus-visual.jpg" alt="プロフィール設計テンプレート、伸びるポストの型30選、30日間発信カレンダーのイメージ" width="1536" height="1024" loading="lazy" decoding="async" />
         <div class="xs-cards">
           <article class="card"><span class="xs-role">土台</span><div class="no">7</div><h3>プロフィール設計テンプレート</h3><p>フォローされる3秒設計</p></article>
           <article class="card"><span class="xs-role">武器</span><div class="no">6</div><h3>伸びるポストの型30選</h3><p>構成テンプレート集</p></article>
@@ -152,6 +163,7 @@
       <section class="sec" aria-labelledby="applyTitle">
         <h2 id="applyTitle">個別ロードマップ作成会<span class="xs-keep">（無料・審査制）</span></h2>
         <p class="xs-description">セミナーの後半でご案内している「無料の個別相談」のことです。 あなたのXを見ながら、この先どう進めていくかを一緒に整理します。X運用に限らず、「何をしていいか分からない」という段階のご相談も受け付けています。</p>
+        <img class="xs-section-image" src="../assets/x-secret-roadmap-visual.jpg" alt="個別ロードマップ作成会（無料・審査制）のイメージ" width="1536" height="1024" loading="lazy" decoding="async" />
         <div class="steps">
           <div class="step" data-n="1"><strong>申し込みフォームに回答</strong>下のボタンから、いくつかの質問にお答えください</div>
           <div class="step" data-n="2"><strong>お申し込み内容を確認</strong>内容を確認のうえ、作成会のご案内をします</div>
