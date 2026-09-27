@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#e8f4ff" />
+  <title>スキルエンジン｜シークレットセミナー</title>
+  <meta name="description" content="LINE友だち限定で公開しているセミナー映像です。フォロワーが少ないうちから始められる、Xとアフィリエイトの考え方をお話ししています。" />
+  <meta name="robots" content="noindex" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../style.v2.css?v=202609271711" />
+  <style>
+    .xs-title { font-size: clamp(23px, 7vw, 30px); }
+    .xs-keep { white-space: nowrap; }
+    .xs-subtitle { margin: 12px 0; font-size: 17px; font-weight: 800; line-height: 1.65; text-align: center; }
+    .xs-lead { margin: 0; font-size: 13px; line-height: 1.85; }
+    .xs-watch { padding: 0 16px 8px; }
+    .xs-video-wrap { z-index: 21; cursor: pointer; touch-action: manipulation; }
+    .xs-video-wrap:focus-visible { outline: 3px solid var(--blue); outline-offset: 4px; }
+    .xs-play {
+      position: absolute; inset: 0; display: grid; place-items: center;
+      width: 100%; height: 100%; margin: 0; padding: 0; border: 0;
+      background: rgba(0, 0, 0, .12); cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .xs-play::before {
+      content: ""; width: 66px; height: 66px; border-radius: 50%;
+      border: 2px solid #fff; background: rgba(15, 23, 42, .8);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, .3);
+    }
+    .xs-play::after {
+      content: ""; position: absolute; top: 50%; left: 50%;
+      transform: translate(-35%, -50%); border-top: 12px solid transparent;
+      border-bottom: 12px solid transparent; border-left: 19px solid #fff;
+    }
+    .xs-play[hidden] { display: none; }
+    .xs-unmute { bottom: 0; }
+    .xs-time {
+      position: absolute; top: 8px; right: 8px; z-index: 3;
+      padding: 3px 7px; border-radius: 6px; background: rgba(11, 11, 13, .78);
+      color: #fff; font-size: 11px; font-weight: 700; font-variant-numeric: tabular-nums;
+      pointer-events: none;
+    }
+    .xs-resume {
+      position: absolute; left: 8px; right: 8px; bottom: 8px; z-index: 3;
+      margin: 0; padding: 5px 8px; border-radius: 6px;
+      background: rgba(11, 11, 13, .82); color: #fff;
+      text-align: center; font-size: 11px; pointer-events: none;
+    }
+    .xs-status {
+      position: absolute; inset: 0; display: grid; place-content: center;
+      padding: 28px 14px 16px; background: rgba(11, 11, 13, .95);
+      color: #fff; font-size: 15px; font-weight: 800; line-height: 1.7; text-align: center;
+      cursor: default;
+    }
+    .xs-status small { display: block; margin-top: 6px; color: #cbd5e1; font-size: 12px; }
+    .xs-status[hidden] { display: none; }
+    .xs-hint { margin: 12px 0 0; color: var(--muted); font-size: 12px; font-weight: 700; text-align: center; }
+    .xs-topics { margin: 16px 0 0; padding-left: 1.25em; font-size: 14px; }
+    .xs-topics li + li { margin-top: 10px; }
+    .xs-bonus { scroll-margin-top: 16px; }
+    .xs-cards { display: grid; grid-template-columns: 1fr; gap: 10px; margin-top: 18px; }
+    .xs-role {
+      display: block; float: right; margin: 0 0 8px 12px; padding: 3px 10px;
+      border-radius: 999px; background: #eef2ff; color: #4f46e5; font-size: 11px; font-weight: 800;
+    }
+    .xs-more { margin: 18px 0 12px; color: var(--blue); font-size: 18px; font-weight: 900; text-align: center; }
+    .xs-table-title { margin: 0 0 10px; font-size: 15px; }
+    .xs-table { width: 100%; border-collapse: collapse; background: #fff; font-size: 12px; }
+    .xs-table th, .xs-table td { padding: 11px 10px; border-bottom: 1px solid var(--line); text-align: left; }
+    .xs-table thead { background: #eef2ff; }
+    .xs-table th:last-child, .xs-table td:last-child { width: 48px; text-align: center; white-space: nowrap; }
+    .xs-description { margin: 14px 0 18px; font-size: 14px; line-height: 1.9; }
+    .xs-cta[aria-disabled="true"] {
+      background: #64748b; box-shadow: 0 6px 0 #475569, 0 10px 18px rgba(71, 85, 105, .18);
+      cursor: not-allowed; transform: none;
+    }
+    .xs-cta[aria-disabled="true"]::before, .xs-cta[aria-disabled="true"]::after { display: none; animation: none; }
+    .xs-sticky { max-width: 430px; margin: 0 auto; }
+    .xs-sticky[hidden] { display: none; }
+    .xs-sticky-cta { font-size: 14px; }
+  </style>
+</head>
+<body>
+<div class="page">
+  <header class="hero">
+    <div class="brand"><span class="dot" aria-hidden="true"></span>スキルエンジン</div>
+    <span class="chip">LINE友だち限定公開</span>
+    <h1 class="xs-title">シークレットセミナー</h1>
+    <p class="xs-subtitle">フォロワーが少ないうちから始められる、Xとアフィリエイトの考え方</p>
+    <p class="xs-lead">セミナー映像を、LINE友だち限定で公開しています（約27分）。映像の中で、よくある質問（初心者でも大丈夫？ 怪しくない？）にもお答えしています。</p>
+  </header>
+
+  <main>
+    <div class="xs-watch">
+      <div class="cx-video-wrap xs-video-wrap" id="videoWrap" tabindex="0" role="group" aria-label="動画の再生・一時停止">
+        <video id="lesson" muted playsinline webkit-playsinline preload="metadata" poster="../assets/x-secret-poster.jpg" aria-label="シークレットセミナー"></video>
+        <button type="button" class="xs-play" id="playBtn" aria-label="タップして再生"></button>
+        <button type="button" class="cx-unmute xs-unmute" id="unmuteBtn" hidden aria-label="音声をオンにする"><span>🔊 タップで音声オン</span></button>
+        <div class="xs-time" id="elapsed">0:00 / 26:39</div>
+        <p class="xs-resume" id="resumeNote" hidden>前回の続きから再生しています</p>
+        <div class="xs-status" id="unavail" role="status" hidden>動画を読み込めませんでした。電波の良い場所で開き直してください</div>
+        <div class="xs-status" id="finished" role="status" hidden>ご視聴ありがとうございました<small>↓ 特典と申し込みはこの下です</small></div>
+      </div>
+      <p class="note left">※動画内でお話ししている金額は一例であり、成果を保証するものではありません。成果には個人差があります。</p>
+      <p class="xs-hint" id="hint" aria-live="polite">13分ごろから、ご覧の方へのご案内がこの下に出ます</p>
+    </div>
+
+    <section class="sec">
+      <h2>このセミナーで<span class="xs-keep">お話ししていること</span></h2>
+      <ul class="xs-topics">
+        <li>自分の商品がなくても始められる理由</li>
+        <li>フォロワーが少なくても始められる理由</li>
+        <li>Xを伸ばしながら、マーケティングが身につく理由</li>
+        <li>よくある不安（初心者でも大丈夫？ 怪しくない？）へのお答え</li>
+      </ul>
+    </section>
+
+    <div class="xs-bonus" id="bonus" hidden>
+      <hr class="line" />
+      <section class="sec" aria-labelledby="bonusTitle">
+        <h2 id="bonusTitle">個別ロードマップ作成会に<span class="xs-keep">ご参加の方へ</span>　<span class="em-gold xs-keep">豪華46大特典</span></h2>
+        <p class="sec-lead">個別ロードマップ作成会にご参加いただいた方に、46点の特典をまとめてお渡しします。</p>
+        <div class="xs-cards">
+          <article class="card"><span class="xs-role">土台</span><div class="no">7</div><h3>プロフィール設計テンプレート</h3><p>フォローされる3秒設計</p></article>
+          <article class="card"><span class="xs-role">武器</span><div class="no">6</div><h3>伸びるポストの型30選</h3><p>構成テンプレート集</p></article>
+          <article class="card"><span class="xs-role">実行計画</span><div class="no">30</div><h3>30日間発信カレンダー</h3><p>実行計画(CSV付き)</p></article>
+        </div>
+        <p class="xs-more">ほか43点</p>
+        <h3 class="xs-table-title" id="breakdownTitle">46点の分野別内訳（上の3点を含む）</h3>
+        <table class="xs-table" aria-labelledby="breakdownTitle">
+          <thead><tr><th scope="col">分野</th><th scope="col">点数</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">AI活用</th><td>5</td></tr>
+            <tr><th scope="row">X(SNS)運用</th><td>7</td></tr>
+            <tr><th scope="row">コンテンツビジネス</th><td>6</td></tr>
+            <tr><th scope="row">心理学・ライティング</th><td>3</td></tr>
+            <tr><th scope="row">LINE・ファネル</th><td>4</td></tr>
+            <tr><th scope="row">効率化・実践ワーク</th><td>5</td></tr>
+            <tr><th scope="row">実践強化編</th><td>6</td></tr>
+            <tr><th scope="row">AI自動化・上級戦略編</th><td>3</td></tr>
+            <tr><th scope="row">実践ブートキャンプ・AI実務講座編</th><td>7</td></tr>
+          </tbody>
+        </table>
+        <p class="note left">※46大特典は、個別ロードマップ作成会（審査制）にご参加いただいた方に、作成会のあとでお渡しします</p>
+        <p class="note left">※特典の内容は一般的な情報提供であり、成果を保証するものではありません。成果には個人差があります。</p>
+      </section>
+
+      <hr class="line" />
+      <section class="sec" aria-labelledby="applyTitle">
+        <h2 id="applyTitle">個別ロードマップ作成会<span class="xs-keep">（無料・審査制）</span></h2>
+        <p class="xs-description">セミナーの後半でご案内している「無料の個別相談」のことです。 あなたのXを見ながら、この先どう進めていくかを一緒に整理します。X運用に限らず、「何をしていいか分からない」という段階のご相談も受け付けています。</p>
+        <div class="steps">
+          <div class="step" data-n="1"><strong>申し込みフォームに回答</strong>下のボタンから、いくつかの質問にお答えください</div>
+          <div class="step" data-n="2"><strong>お申し込み内容を確認</strong>内容を確認のうえ、作成会のご案内をします</div>
+          <div class="step" data-n="3"><strong>LINEで日程のご案内</strong>スキルエンジン公式LINEからご連絡します</div>
+          <div class="step" data-n="4"><strong>個別ロードマップ作成会</strong>オンライン・無料。終了後に46大特典をお渡しします</div>
+        </div>
+        <div class="cta-inline">
+          <a class="cta xs-cta" data-form-link aria-disabled="true"><span class="txt">審査に申し込む（無料）<small data-form-note>フォームは準備中です</small></span></a>
+        </div>
+        <p class="note">費用は無料です。</p>
+        <p class="note left">※作成会の最後に、スキルエンジンの有料サポートをご案内する場合があります。お申し込みいただかなくても、46大特典はお渡しします。</p>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <p class="disc">※本ページに掲載の実績・金額は個人の成果であり、同等の結果を保証するものではありません。成果には個人差があります。</p>
+    <p><a href="../privacy.html">プライバシーポリシー</a></p>
+    <p>Copyright(c) 2026 ガガロット All Rights Reserved.</p>
+  </footer>
+</div>
+
+<div class="sticky xs-sticky" id="sticky" hidden>
+  <a class="cta xs-cta xs-sticky-cta" data-form-link aria-disabled="true"><span class="txt">個別ロードマップ作成会に申し込む<small data-form-note data-ready-note="無料・審査制">フォームは準備中です</small></span></a>
+</div>
+
+<script>
+(function () {
+  var FORM_URL = "";
+  document.querySelectorAll("[data-form-link]").forEach(function (link) {
+    if (FORM_URL) {
+      link.href = FORM_URL;
+      link.removeAttribute("aria-disabled");
+      var note = link.querySelector("[data-form-note]");
+      note.textContent = note.getAttribute("data-ready-note") || "";
+      if (!note.textContent) note.remove();
+    } else {
+      link.addEventListener("click", function (event) { event.preventDefault(); });
+    }
+  });
+
+  var HLS_SRC = "https://autowebinar-eta.vercel.app/api/media/webinar2-v1/master.m3u8";
+  var HLS_JS = "https://cdnjs.cloudflare.com/ajax/libs/hls.js/1.5.20/hls.min.js";
+  var REVEAL_AT_SECONDS = 820;
+  var STOP_AT_SECONDS = 1599;
+  var POSITION_KEY = "skillengine-lp-xsecret-pos";
+  var REVEALED_KEY = "skillengine-lp-xsecret-revealed";
+  var debug = location.hash === "#debug";
+  var video = document.getElementById("lesson");
+  var wrap = document.getElementById("videoWrap");
+  var playBtn = document.getElementById("playBtn");
+  var unmuteBtn = document.getElementById("unmuteBtn");
+  var unavail = document.getElementById("unavail");
+  var finished = document.getElementById("finished");
+  var elapsed = document.getElementById("elapsed");
+  var resumeNote = document.getElementById("resumeNote");
+  var hint = document.getElementById("hint");
+  var bonus = document.getElementById("bonus");
+  var sticky = document.getElementById("sticky");
+  var failed = false;
+  var ended = false;
+  var revealSaved = false;
+  var resumeAt = 0;
+  var resumeShown = false;
+  var waitTimer = null;
+  var playAttempt = 0;
+  var autoplayTried = false;
+  var userInteracted = false;
+  var autoplayRetry = false;
+  var retryUsed = false;
+  var hls = null;
+
+  function reveal(save) {
+    bonus.hidden = false;
+    sticky.hidden = false;
+    if (!failed) hint.textContent = "↓ 特典と申し込みはこの下にあります";
+    if (save && !debug && !revealSaved) {
+      try { localStorage.setItem(REVEALED_KEY, "1"); revealSaved = true; } catch (e) {}
+    }
+  }
+
+  if (!debug) {
+    try {
+      revealSaved = localStorage.getItem(REVEALED_KEY) === "1";
+      var savedPosition = Number(localStorage.getItem(POSITION_KEY));
+      if (isFinite(savedPosition) && savedPosition >= 30 && savedPosition < 1590) {
+        resumeAt = Math.floor(savedPosition) - 5;
+      }
+    } catch (e) {}
+  }
+  if (debug || revealSaved) reveal(false);
+  var source = HLS_SRC + (resumeAt ? "?at=" + resumeAt : "");
+
+  function stopWaiting() {
+    if (waitTimer !== null) { clearTimeout(waitTimer); waitTimer = null; }
+  }
+
+  function updateTime() {
+    var seconds = Math.min(STOP_AT_SECONDS, Math.max(0, Math.floor(video.currentTime || 0)));
+    elapsed.textContent = Math.floor(seconds / 60) + ":" + ("0" + (seconds % 60)).slice(-2) + " / 26:39";
+  }
+
+  function showUnavailable() {
+    if (failed || ended) return;
+    failed = true;
+    playAttempt++;
+    stopWaiting();
+    video.pause();
+    if (hls) { hls.destroy(); hls = null; }
+    playBtn.hidden = true;
+    unmuteBtn.hidden = true;
+    resumeNote.hidden = true;
+    unavail.hidden = false;
+    hint.textContent = "動画を読み込めなかった方も、この下からお申し込みいただけます ↓";
+    reveal(false);
+  }
+
+  function finish() {
+    if (ended || failed) return;
+    ended = true;
+    playAttempt++;
+    stopWaiting();
+    video.pause();
+    playBtn.hidden = true;
+    unmuteBtn.hidden = true;
+    resumeNote.hidden = true;
+    finished.hidden = false;
+    updateTime();
+    reveal(true);
+    var reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    try { bonus.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "start" }); } catch (e) {}
+  }
+
+  function unmute() {
+    video.muted = false;
+    video.removeAttribute("muted");
+    unmuteBtn.hidden = true;
+  }
+
+  function attemptPlayback(automatic) {
+    if (failed || ended) return;
+    if (video.currentTime >= STOP_AT_SECONDS) { finish(); return; }
+    if (automatic) { video.muted = true; video.setAttribute("muted", ""); }
+    else { unmute(); }
+    var attempt = ++playAttempt;
+    if (waitTimer === null) waitTimer = setTimeout(showUnavailable, 15000);
+    function rejected(error) {
+      if (attempt !== playAttempt || failed || ended) return;
+      playBtn.hidden = false;
+      if (error && error.name === "NotAllowedError") {
+        stopWaiting();
+        autoplayRetry = false;
+        unmute();
+      } else if (automatic && !retryUsed) {
+        autoplayRetry = true;
+      }
+    }
+    try {
+      var result = video.play();
+      if (result && result.catch) result.catch(rejected);
+    } catch (error) { rejected(error); }
+  }
+
+  function tryAutoplay() {
+    if (autoplayTried || userInteracted || failed || ended) return;
+    autoplayTried = true;
+    attemptPlayback(true);
+  }
+
+  function handleVideoTap(event) {
+    if (event) event.stopPropagation();
+    if (failed || ended) return;
+    userInteracted = true;
+    autoplayRetry = false;
+    if (!video.paused && video.muted) { unmute(); return; }
+    if (!video.paused) { video.pause(); return; }
+    attemptPlayback(false);
+  }
+  wrap.addEventListener("click", handleVideoTap);
+  playBtn.addEventListener("click", handleVideoTap);
+  unmuteBtn.addEventListener("click", handleVideoTap);
+  wrap.addEventListener("keydown", function (event) {
+    if (event.target === wrap && (event.key === "Enter" || event.key === " ")) {
+      event.preventDefault();
+      handleVideoTap(event);
+    }
+  });
+
+  video.addEventListener("loadedmetadata", tryAutoplay, { once: true });
+  video.addEventListener("canplay", function () {
+    if (autoplayRetry && !retryUsed && !userInteracted && !failed && !ended) {
+      autoplayRetry = false;
+      retryUsed = true;
+      attemptPlayback(true);
+    }
+  });
+  video.addEventListener("play", function () {
+    if (failed || ended) { video.pause(); return; }
+    if (video.currentTime >= STOP_AT_SECONDS) finish();
+  });
+  video.addEventListener("playing", function () {
+    if (failed || ended) { video.pause(); return; }
+    if (video.currentTime >= STOP_AT_SECONDS) { finish(); return; }
+    playAttempt++;
+    stopWaiting();
+    autoplayRetry = false;
+    playBtn.hidden = true;
+    unmuteBtn.hidden = !video.muted;
+    if (resumeAt && !resumeShown) {
+      resumeShown = true;
+      resumeNote.hidden = false;
+      setTimeout(function () { resumeNote.hidden = true; }, 3000);
+    }
+  });
+  video.addEventListener("pause", function () {
+    playAttempt++;
+    stopWaiting();
+    unmuteBtn.hidden = true;
+    if (!failed && !ended) playBtn.hidden = false;
+  });
+  video.addEventListener("volumechange", function () {
+    unmuteBtn.hidden = failed || ended || video.paused || !video.muted || !playBtn.hidden;
+  });
+  video.addEventListener("timeupdate", function () {
+    updateTime();
+    if (failed || ended) return;
+    if (video.currentTime >= STOP_AT_SECONDS) { finish(); return; }
+    if (video.currentTime >= REVEAL_AT_SECONDS) reveal(true);
+  });
+  video.addEventListener("ended", function () {
+    if (video.currentTime >= STOP_AT_SECONDS) finish();
+    else showUnavailable();
+  });
+  video.addEventListener("error", showUnavailable);
+  setInterval(function () {
+    if (debug || failed || ended || video.paused || video.currentTime < 30) return;
+    try { localStorage.setItem(POSITION_KEY, String(Math.floor(video.currentTime))); } catch (e) {}
+  }, 5000);
+
+  var ua = navigator.userAgent || "";
+  var isApple = /iPad|iPhone|iPod/.test(ua)
+    || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1)
+    || (/Safari/.test(ua) && !/Chrome|Chromium|CriOS|FxiOS|Edg|Android/.test(ua));
+  var canNative = false;
+  try { canNative = isApple && !!video.canPlayType("application/vnd.apple.mpegurl"); } catch (e) {}
+
+  if (canNative) {
+    video.src = source;
+    try {
+      fetch(source, { method: "GET", cache: "no-store" })
+        .then(function (response) { if (!response.ok) showUnavailable(); })
+        .catch(function () { /* CORS で確認できない場合は video の error に任せる。 */ });
+    } catch (e) {}
+  } else {
+    var script = document.createElement("script");
+    script.src = HLS_JS;
+    script.async = true;
+    script.onerror = showUnavailable;
+    script.onload = function () {
+      if (failed || ended) return;
+      if (!window.Hls || !window.Hls.isSupported()) { showUnavailable(); return; }
+      hls = new window.Hls({ enableWorker: true, startPosition: resumeAt || -1 });
+      hls.on(window.Hls.Events.ERROR, function (_event, data) {
+        if (data && data.fatal) showUnavailable();
+      });
+      hls.loadSource(source);
+      hls.attachMedia(video);
+    };
+    document.head.appendChild(script);
+  }
+})();
+</script>
+</body>
+</html>
