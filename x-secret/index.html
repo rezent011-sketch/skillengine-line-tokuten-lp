@@ -107,7 +107,7 @@
         <div class="xs-status" id="finished" role="status" hidden>ご視聴ありがとうございました<small>↓ 特典と申し込みはこの下です</small></div>
       </div>
       <p class="note left">※動画内でお話ししている金額は一例であり、成果を保証するものではありません。成果には個人差があります。</p>
-      <p class="xs-hint" id="hint" aria-live="polite">13分ごろから、ご覧の方へのご案内がこの下に出ます</p>
+      <p class="xs-hint" id="hint" aria-live="polite">↓ 特典と申し込みはこの下にあります</p>
     </div>
 
     <section class="sec">
@@ -120,7 +120,7 @@
       </ul>
     </section>
 
-    <div class="xs-bonus" id="bonus" hidden>
+    <div class="xs-bonus" id="bonus">
       <hr class="line" />
       <section class="sec" aria-labelledby="bonusTitle">
         <h2 class="xs-sr-only" id="bonusTitle">個別ロードマップ作成会にご参加の方へ　豪華46大特典</h2>
@@ -145,7 +145,7 @@
   </footer>
 </div>
 
-<div class="sticky xs-sticky" id="sticky" hidden>
+<div class="sticky xs-sticky" id="sticky">
   <a class="cta xs-cta xs-sticky-cta" data-form-link aria-disabled="true"><span class="txt"><span class="xs-cta-line">個別ロードマップ作成会に</span><span class="xs-cta-line">予約して特典を受け取る</span><small data-form-note data-ready-note="無料・審査制">フォームは準備中です</small></span></a>
 </div>
 
@@ -213,7 +213,7 @@
       }
     } catch (e) {}
   }
-  if (debug || revealSaved) reveal(false);
+  reveal(false);
   var source = HLS_SRC + (resumeAt ? "?at=" + resumeAt : "");
 
   function stopWaiting() {
