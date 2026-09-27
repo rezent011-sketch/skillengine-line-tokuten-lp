@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="theme-color" content="#e8f4ff" />
   <title>スキルエンジン｜AI×SNS月100万シークレットセミナー</title>
-  <meta name="description" content="LINE友だち限定で公開しているセミナー映像です。フォロワーが少ないうちから始められる、Xとアフィリエイトの考え方をお話ししています。" />
+  <meta name="description" content="AI×SNS月100万シークレットセミナー。動画は初回閲覧から4日間限定で公開。個別ロードマップ作成会のお申し込みはこちら。" />
   <meta name="robots" content="noindex" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -15,16 +15,13 @@
     .xs-hero { padding: 0 0 10px; }
     .xs-title { margin: 0; line-height: 1; }
     .xs-hero-image { width: 100%; height: auto; }
-    .xs-hero-copy { padding: 0 16px; }
     .xs-sr-only {
       position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
       overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0;
     }
     .xs-section-image { width: 100%; height: auto; margin: 0 0 16px; border-radius: 16px; }
-    .xs-page { padding-bottom: calc(144px + env(safe-area-inset-bottom)); }
+    .xs-page { padding-bottom: calc(144px + env(safe-area-inset-bottom)); background: #fff; }
     .xs-keep { white-space: nowrap; }
-    .xs-subtitle { margin: 12px 0; font-size: 17px; font-weight: 800; line-height: 1.65; text-align: center; }
-    .xs-lead { margin: 0; font-size: 13px; line-height: 1.85; }
     .xs-watch { padding: 0 16px 8px; }
     .xs-video-wrap { z-index: 21; cursor: pointer; touch-action: manipulation; }
     .xs-video-wrap:focus-visible { outline: 3px solid var(--blue); outline-offset: 4px; }
@@ -66,21 +63,34 @@
     }
     .xs-status small { display: block; margin-top: 6px; color: #cbd5e1; font-size: 12px; }
     .xs-status[hidden] { display: none; }
+    .xs-expired { z-index: 4; padding: 20px 10px; background: #000; font-size: clamp(22px, 6.8vw, 29px); line-height: 2.1; font-weight: 900; }
+    .xs-expired span { display: block; }
+    .xs-deadline { margin: 14px 0 0; color: #374151; font-size: 12px; text-align: center; }
     .xs-hint { margin: 12px 0 0; color: var(--muted); font-size: 12px; font-weight: 700; text-align: center; }
     .xs-topics { margin: 16px 0 0; padding-left: 1.25em; font-size: 14px; }
     .xs-topics li + li { margin-top: 10px; }
-    .xs-bonus { scroll-margin-top: 16px; }
+    .xs-bonus { margin-top: 28px; scroll-margin-top: 16px; }
+    .xs-apply-heading { margin: 0; padding: 24px 12px; background: #5a99ae; color: #fff; text-align: center; font-size: 23px; font-weight: 800; line-height: 1.5; }
+    .xs-apply-heading span { display: block; }
+    .xs-apply-heading .xs-apply-eyebrow { font-size: 21px; }
+    .xs-apply-heading .xs-apply-accent { color: #ffff00; }
+    .xs-apply-body { padding: 24px 20px 30px; }
+    .xs-apply-guide { margin: 0 0 20px; font-size: 14px; text-align: center; }
+    .xs-price { margin: 0 0 22px; font-size: 24px; font-weight: 900; text-align: center; line-height: 1.6; }
+    .xs-price strong { color: #e00000; font-size: 38px; }
+    .xs-price span { display: block; font-size: 18px; }
     .xs-offer-lead { margin: 0 0 16px; font-size: 14px; font-weight: 700; text-align: center; line-height: 1.8; }
-    .xs-offer-meta { margin: 0 0 10px; color: #15803d; font-size: 14px; font-weight: 800; text-align: center; }
     .xs-cta-line { display: block; }
-    .xs-cta[aria-disabled="true"] {
-      background: #64748b; box-shadow: 0 6px 0 #475569, 0 10px 18px rgba(71, 85, 105, .18);
-      cursor: not-allowed; transform: none;
-    }
-    .xs-cta[aria-disabled="true"]::before, .xs-cta[aria-disabled="true"]::after { display: none; animation: none; }
+    .xs-cta { padding: 19px 10px; border: 1px solid #ca8e35; border-radius: 0; background: #f5ad40; box-shadow: 0 4px 0 #be832c; color: #fff; font-size: 18px; text-shadow: 0 2px 1px rgba(112, 65, 0, .3); }
+    .xs-cta::before, .xs-cta::after { display: none; animation: none; }
+    .xs-cta:active { box-shadow: 0 2px 0 #be832c; }
+    .xs-cta[aria-disabled="true"] { cursor: not-allowed; transform: none; }
+    .xs-cta small { margin-top: 8px; color: #4c2b09; text-shadow: none; }
     .xs-sticky { max-width: 430px; margin: 0 auto; }
     .xs-sticky[hidden] { display: none; }
     .xs-sticky-cta { font-size: 14px; }
+    .xs-footer { padding: 22px 16px; background: #5a99ae; color: #fff; }
+    .xs-footer a { color: #fff; text-decoration: underline; }
   </style>
 </head>
 <body>
@@ -89,10 +99,6 @@
     <div class="brand xs-sr-only">スキルエンジン</div>
     <span class="chip xs-sr-only">LINE友だち限定公開</span>
     <h1 class="xs-title"><img class="xs-hero-image" src="../assets/x-secret-hero-visual.jpg" alt="AI×SNS月100万シークレットセミナー" width="1536" height="1024" fetchpriority="high" /></h1>
-    <div class="xs-hero-copy">
-      <p class="xs-subtitle">フォロワー100人でも100万売れる仕組み</p>
-      <p class="xs-lead">セミナー映像を、LINE友だち限定で公開しています（約27分）。映像の中で、よくある質問（初心者でも大丈夫？ 怪しくない？）にもお答えしています。</p>
-    </div>
   </header>
 
   <main>
@@ -105,7 +111,9 @@
         <p class="xs-resume" id="resumeNote" hidden>前回の続きから再生しています</p>
         <div class="xs-status" id="unavail" role="status" hidden>動画を読み込めませんでした。電波の良い場所で開き直してください</div>
         <div class="xs-status" id="finished" role="status" hidden>ご視聴ありがとうございました<small>↓ 特典と申し込みはこの下です</small></div>
+        <div class="xs-status xs-expired" id="expired" role="status" hidden><span>動画視聴期限は</span><span>終了いたしました</span></div>
       </div>
+      <p class="xs-deadline" id="deadlineNote">動画の視聴期限は、初めてこのページを開いてから4日間です。</p>
       <p class="note left">※動画内でお話ししている金額は一例であり、成果を保証するものではありません。成果には個人差があります。</p>
       <p class="xs-hint" id="hint" aria-live="polite">↓ 特典と申し込みはこの下にあります</p>
     </div>
@@ -121,24 +129,26 @@
     </section>
 
     <div class="xs-bonus" id="bonus">
-      <hr class="line" />
-      <section class="sec" aria-labelledby="bonusTitle">
-        <h2 class="xs-sr-only" id="bonusTitle">個別ロードマップ作成会にご参加の方へ　豪華46大特典</h2>
-        <img class="xs-section-image" src="../assets/x-secret-gifts-visual.jpg" alt="豪華46大特典" width="1536" height="1024" loading="lazy" decoding="async" />
-        <p class="xs-offer-lead">個別ロードマップ作成会にご参加いただいた方に、46点の特典をまとめてお渡しします。</p>
-        <p class="xs-offer-meta" id="applyTitle">無料・審査制</p>
-        <div class="cta-inline">
-          <a class="cta xs-cta" data-form-link aria-disabled="true"><span class="txt"><span class="xs-cta-line">個別ロードマップ作成会に</span><span class="xs-cta-line">予約して特典を受け取る</span><small data-form-note data-ready-note="無料・審査制">フォームは準備中です</small></span></a>
+      <section aria-labelledby="applyTitle">
+        <h2 class="xs-apply-heading" id="applyTitle"><span class="xs-apply-eyebrow">完全オーダーメイド</span><span>個別ロードマップ作成会</span><span class="xs-apply-accent">審査申込みフォーム</span></h2>
+        <div class="xs-apply-body">
+          <p class="xs-apply-guide">下のボタンから、必要事項を入力して<br />お申し込みください。</p>
+          <p class="xs-price">参加費 <strong>0円</strong><span>無料でご参加いただけます（審査制）</span></p>
+          <h2 class="xs-sr-only" id="bonusTitle">個別ロードマップ作成会にご参加の方へ　豪華46大特典</h2>
+          <img class="xs-section-image" src="../assets/x-secret-gifts-visual.jpg" alt="豪華46大特典" width="1536" height="1024" loading="lazy" decoding="async" />
+          <p class="xs-offer-lead">個別ロードマップ作成会にご参加いただいた方に、46点の特典をまとめてお渡しします。</p>
+          <div class="cta-inline">
+            <a class="cta xs-cta" data-form-link aria-disabled="true"><span class="txt"><span class="xs-cta-line">個別ロードマップ作成会に</span><span class="xs-cta-line">予約して特典を受け取る</span><small data-form-note data-ready-note="無料・審査制">フォームは準備中です</small></span></a>
+          </div>
+          <p class="note left">※46大特典は、個別ロードマップ作成会（審査制）にご参加いただいた方に、作成会のあとでお渡しします</p>
+          <p class="note left">※特典の内容は一般的な情報提供であり、成果を保証するものではありません。成果には個人差があります。</p>
+          <p class="note left">※作成会の最後に、スキルエンジンの有料サポートをご案内する場合があります。お申し込みいただかなくても、46大特典はお渡しします。</p>
         </div>
-        <p class="note">費用は無料です。</p>
-        <p class="note left">※46大特典は、個別ロードマップ作成会（審査制）にご参加いただいた方に、作成会のあとでお渡しします</p>
-        <p class="note left">※特典の内容は一般的な情報提供であり、成果を保証するものではありません。成果には個人差があります。</p>
-        <p class="note left">※作成会の最後に、スキルエンジンの有料サポートをご案内する場合があります。お申し込みいただかなくても、46大特典はお渡しします。</p>
       </section>
     </div>
   </main>
 
-  <footer>
+  <footer class="xs-footer">
     <p class="disc">※本ページに掲載の実績・金額は個人の成果であり、同等の結果を保証するものではありません。成果には個人差があります。</p>
     <p><a href="../privacy.html">プライバシーポリシー</a></p>
     <p>Copyright(c) 2026 ガガロット All Rights Reserved.</p>
@@ -170,6 +180,8 @@
   var STOP_AT_SECONDS = 1599;
   var POSITION_KEY = "skillengine-lp-xsecret-pos";
   var REVEALED_KEY = "skillengine-lp-xsecret-revealed";
+  var ACCESS_KEY = "skillengine-lp-xsecret-access-v1";
+  var ACCESS_DURATION_MS = 4 * 24 * 60 * 60 * 1000;
   var debug = location.hash === "#debug";
   var video = document.getElementById("lesson");
   var wrap = document.getElementById("videoWrap");
@@ -177,6 +189,8 @@
   var unmuteBtn = document.getElementById("unmuteBtn");
   var unavail = document.getElementById("unavail");
   var finished = document.getElementById("finished");
+  var expiredMessage = document.getElementById("expired");
+  var deadlineNote = document.getElementById("deadlineNote");
   var elapsed = document.getElementById("elapsed");
   var resumeNote = document.getElementById("resumeNote");
   var hint = document.getElementById("hint");
@@ -194,11 +208,97 @@
   var autoplayRetry = false;
   var retryUsed = false;
   var hls = null;
+  var expiresAt = 0;
+  var expired = false;
+  var accessBlocked = false;
+  var deadlineTimer = null;
+  var clockTimer = null;
+
+  // 視聴期限はブラウザーごとに保存する。#debug でも期限を延長・解除しない。
+  function readAccess() {
+    var raw = localStorage.getItem(ACCESS_KEY);
+    if (raw === null) return null;
+    var record = JSON.parse(raw);
+    if (!record || typeof record.expiresAt !== "number" || !isFinite(record.expiresAt)
+        || record.expiresAt <= 0 || typeof record.expired !== "boolean") {
+      throw new Error("Invalid access record");
+    }
+    return record;
+  }
+
+  function saveAccess() {
+    localStorage.setItem(ACCESS_KEY, JSON.stringify({ expiresAt: expiresAt, expired: expired }));
+    var saved = readAccess();
+    if (!saved || saved.expiresAt !== expiresAt || saved.expired !== expired) {
+      throw new Error("Access record was not saved");
+    }
+  }
+
+  function stopAccessPlayback() {
+    playAttempt++;
+    stopWaiting();
+    clearTimeout(deadlineTimer);
+    clearInterval(clockTimer);
+    video.pause();
+    if (hls) { hls.destroy(); hls = null; }
+    video.removeAttribute("src");
+    video.load();
+    playBtn.hidden = true;
+    unmuteBtn.hidden = true;
+    resumeNote.hidden = true;
+    elapsed.hidden = true;
+    finished.hidden = true;
+    wrap.removeAttribute("tabindex");
+  }
+
+  function expireAccess() {
+    if (expired) return;
+    expired = true;
+    try { saveAccess(); } catch (e) { /* 保存済みの期限自体も過去のまま残す。 */ }
+    stopAccessPlayback();
+    unavail.hidden = true;
+    expiredMessage.hidden = false;
+    wrap.setAttribute("aria-label", "動画視聴期限は終了いたしました");
+    deadlineNote.textContent = "4日間の動画公開は終了しました。作成会へのお申し込みは下から受け付けています。";
+    reveal(false);
+  }
+
+  function blockAccessStorage() {
+    accessBlocked = true;
+    stopAccessPlayback();
+    unavail.textContent = "視聴期限を保存できませんでした。ブラウザーのサイトデータの保存を許可してから、開き直してください。";
+    unavail.hidden = false;
+    wrap.setAttribute("aria-label", "動画の視聴期限を確認できません");
+    reveal(false);
+  }
+
+  function checkAccess() {
+    if (expired || accessBlocked) return false;
+    if (expiresAt && Date.now() >= expiresAt) { expireAccess(); return false; }
+    return true;
+  }
+
+  function syncAccess() {
+    if (expired || accessBlocked) return false;
+    try {
+      var saved = readAccess();
+      if (!expiresAt) expiresAt = saved ? saved.expiresAt : Date.now() + ACCESS_DURATION_MS;
+      if (saved) expiresAt = Math.min(expiresAt, saved.expiresAt);
+      if ((saved && saved.expired) || Date.now() >= expiresAt) { expireAccess(); return false; }
+      if (!saved || saved.expiresAt !== expiresAt) saveAccess();
+      clearTimeout(deadlineTimer);
+      deadlineTimer = setTimeout(checkAccess, Math.min(expiresAt - Date.now(), 2147483647));
+      return true;
+    } catch (e) {
+      blockAccessStorage();
+      return false;
+    }
+  }
 
   function reveal(save) {
     bonus.hidden = false;
     sticky.hidden = false;
-    if (!failed) hint.textContent = "↓ 特典と申し込みはこの下にあります";
+    if (!failed || expired) hint.textContent = "↓ 特典と申し込みはこの下にあります";
     if (save && !debug && !revealSaved) {
       try { localStorage.setItem(REVEALED_KEY, "1"); revealSaved = true; } catch (e) {}
     }
@@ -226,7 +326,7 @@
   }
 
   function showUnavailable() {
-    if (failed || ended) return;
+    if (!checkAccess() || failed || ended) return;
     failed = true;
     playAttempt++;
     stopWaiting();
@@ -241,7 +341,7 @@
   }
 
   function finish() {
-    if (ended || failed) return;
+    if (!checkAccess() || ended || failed) return;
     ended = true;
     playAttempt++;
     stopWaiting();
@@ -263,14 +363,14 @@
   }
 
   function attemptPlayback(automatic) {
-    if (failed || ended) return;
+    if (!checkAccess() || failed || ended) return;
     if (video.currentTime >= STOP_AT_SECONDS) { finish(); return; }
     if (automatic) { video.muted = true; video.setAttribute("muted", ""); }
     else { unmute(); }
     var attempt = ++playAttempt;
     if (waitTimer === null) waitTimer = setTimeout(showUnavailable, 15000);
     function rejected(error) {
-      if (attempt !== playAttempt || failed || ended) return;
+      if (!checkAccess() || attempt !== playAttempt || failed || ended) return;
       playBtn.hidden = false;
       if (error && error.name === "NotAllowedError") {
         stopWaiting();
@@ -287,14 +387,14 @@
   }
 
   function tryAutoplay() {
-    if (autoplayTried || userInteracted || failed || ended) return;
+    if (!checkAccess() || autoplayTried || userInteracted || failed || ended) return;
     autoplayTried = true;
     attemptPlayback(true);
   }
 
   function handleVideoTap(event) {
     if (event) event.stopPropagation();
-    if (failed || ended) return;
+    if (!checkAccess() || failed || ended) return;
     userInteracted = true;
     autoplayRetry = false;
     if (!video.paused && video.muted) { unmute(); return; }
@@ -320,11 +420,11 @@
     }
   });
   video.addEventListener("play", function () {
-    if (failed || ended) { video.pause(); return; }
+    if (!checkAccess() || failed || ended) { video.pause(); return; }
     if (video.currentTime >= STOP_AT_SECONDS) finish();
   });
   video.addEventListener("playing", function () {
-    if (failed || ended) { video.pause(); return; }
+    if (!checkAccess() || failed || ended) { video.pause(); return; }
     if (video.currentTime >= STOP_AT_SECONDS) { finish(); return; }
     playAttempt++;
     stopWaiting();
@@ -341,14 +441,14 @@
     playAttempt++;
     stopWaiting();
     unmuteBtn.hidden = true;
-    if (!failed && !ended) playBtn.hidden = false;
+    if (checkAccess() && !failed && !ended) playBtn.hidden = false;
   });
   video.addEventListener("volumechange", function () {
-    unmuteBtn.hidden = failed || ended || video.paused || !video.muted || !playBtn.hidden;
+    unmuteBtn.hidden = !checkAccess() || failed || ended || video.paused || !video.muted || !playBtn.hidden;
   });
   video.addEventListener("timeupdate", function () {
     updateTime();
-    if (failed || ended) return;
+    if (!checkAccess() || failed || ended) return;
     if (video.currentTime >= STOP_AT_SECONDS) { finish(); return; }
     if (video.currentTime >= REVEAL_AT_SECONDS) reveal(true);
   });
@@ -358,9 +458,21 @@
   });
   video.addEventListener("error", showUnavailable);
   setInterval(function () {
-    if (debug || failed || ended || video.paused || video.currentTime < 30) return;
+    if (!checkAccess() || debug || failed || ended || video.paused || video.currentTime < 30) return;
     try { localStorage.setItem(POSITION_KEY, String(Math.floor(video.currentTime))); } catch (e) {}
   }, 5000);
+
+  // 再訪・タブ復帰でも初回の期限を使い、開いたまま期限を迎えた動画も停止する。
+  window.addEventListener("pageshow", syncAccess);
+  window.addEventListener("focus", syncAccess);
+  window.addEventListener("storage", function (event) {
+    if (event.key === ACCESS_KEY || event.key === null) syncAccess();
+  });
+  document.addEventListener("visibilitychange", function () {
+    if (!document.hidden) syncAccess();
+  });
+  if (!syncAccess()) return;
+  clockTimer = setInterval(checkAccess, 1000);
 
   var ua = navigator.userAgent || "";
   var isApple = /iPad|iPhone|iPod/.test(ua)
@@ -382,7 +494,7 @@
     script.async = true;
     script.onerror = showUnavailable;
     script.onload = function () {
-      if (failed || ended) return;
+      if (!checkAccess() || failed || ended) return;
       if (!window.Hls || !window.Hls.isSupported()) { showUnavailable(); return; }
       hls = new window.Hls({ enableWorker: true, startPosition: resumeAt || -1 });
       hls.on(window.Hls.Events.ERROR, function (_event, data) {
