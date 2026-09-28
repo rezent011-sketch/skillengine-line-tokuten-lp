@@ -80,11 +80,19 @@
     .xs-price span { display: block; font-size: 18px; }
     .xs-offer-lead { margin: 0 0 16px; font-size: 14px; font-weight: 700; text-align: center; line-height: 1.8; }
     .xs-cta-line { display: block; }
-    .xs-cta { padding: 19px 10px; border: 1px solid #ca8e35; border-radius: 0; background: #f5ad40; box-shadow: 0 4px 0 #be832c; color: #fff; font-size: 18px; text-shadow: 0 2px 1px rgba(112, 65, 0, .3); }
+    .xs-cta { padding: 19px 10px; border: 1px solid #ca8e35; border-radius: 0; background: #f5ad40; box-shadow: 0 4px 0 #be832c; color: #fff; font-size: 18px; text-shadow: 0 2px 1px rgba(112, 65, 0, .3); animation: xs-cta-nudge 3s ease-in-out infinite; }
     .xs-cta::before, .xs-cta::after { display: none; animation: none; }
-    .xs-cta:active { box-shadow: 0 2px 0 #be832c; }
-    .xs-cta[aria-disabled="true"] { cursor: not-allowed; transform: none; }
-    .xs-cta small { margin-top: 8px; color: #4c2b09; text-shadow: none; }
+    .xs-cta:hover, .xs-cta:focus-visible { animation-play-state: paused; }
+    .xs-cta:focus-visible { outline: 3px solid #4c2b09; outline-offset: 4px; }
+    .xs-cta:active { animation: none; transform: translateY(2px); box-shadow: 0 2px 0 #be832c; }
+    .xs-cta[aria-disabled="true"] { cursor: not-allowed; transform: none; animation: none; }
+    .xs-cta small { display: inline-flex; align-items: center; gap: 10px; margin-top: 10px; padding: 5px 18px; border-radius: 999px; background: #fff; color: #4c2b09; font-size: 14px; font-weight: 900; line-height: 1.4; text-shadow: none; opacity: 1; }
+    .xs-cta small::after { content: ""; width: 6px; height: 6px; border-top: 2px solid currentColor; border-right: 2px solid currentColor; transform: rotate(45deg); }
+    @keyframes xs-cta-nudge {
+      0%, 70%, 100% { transform: translateY(0) scale(1); }
+      35% { transform: translateY(-3px) scale(1.012); }
+    }
+    @media (prefers-reduced-motion: reduce) { .xs-cta { animation: none; } }
     .xs-sticky { max-width: 430px; margin: 0 auto; }
     .xs-sticky[hidden] { display: none; }
     .xs-sticky-cta { font-size: 14px; }
@@ -125,7 +133,7 @@
           <img class="xs-section-image" src="../assets/x-secret-gifts-visual.jpg" alt="豪華46大特典" width="1536" height="1024" loading="lazy" decoding="async" />
           <p class="xs-offer-lead">個別ロードマップ作成会にご参加いただいた方に、46点の特典をまとめてお渡しします。</p>
           <div class="cta-inline">
-            <a class="cta xs-cta" data-form-link aria-disabled="true"><span class="txt"><span class="xs-cta-line">個別ロードマップ作成会に</span><span class="xs-cta-line">予約して特典を受け取る</span><small data-form-note data-ready-note="公式LINEで審査のご案内を受け取る">フォームは準備中です</small></span></a>
+            <a class="cta xs-cta" data-form-link aria-disabled="true"><span class="txt"><span class="xs-cta-line">個別ロードマップ作成会に</span><span class="xs-cta-line">予約して特典を受け取る</span><small data-form-note data-ready-note="ここをタップ">フォームは準備中です</small></span></a>
           </div>
           <p class="note left">※46大特典は、個別ロードマップ作成会（審査制）にご参加いただいた方に、作成会のあとでお渡しします</p>
           <p class="note left">※特典の内容は一般的な情報提供であり、成果を保証するものではありません。成果には個人差があります。</p>
@@ -143,7 +151,7 @@
 </div>
 
 <div class="sticky xs-sticky" id="sticky">
-  <a class="cta xs-cta xs-sticky-cta" data-form-link aria-disabled="true"><span class="txt"><span class="xs-cta-line">個別ロードマップ作成会に</span><span class="xs-cta-line">予約して特典を受け取る</span><small data-form-note data-ready-note="公式LINEで審査のご案内を受け取る">フォームは準備中です</small></span></a>
+  <a class="cta xs-cta xs-sticky-cta" data-form-link aria-disabled="true"><span class="txt"><span class="xs-cta-line">個別ロードマップ作成会に</span><span class="xs-cta-line">予約して特典を受け取る</span><small data-form-note data-ready-note="ここをタップ">フォームは準備中です</small></span></a>
 </div>
 
 <script>
