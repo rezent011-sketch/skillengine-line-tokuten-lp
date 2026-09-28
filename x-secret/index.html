@@ -65,10 +65,6 @@
     .xs-status[hidden] { display: none; }
     .xs-expired { z-index: 4; padding: 20px 10px; background: #000; font-size: clamp(22px, 6.8vw, 29px); line-height: 2.1; font-weight: 900; }
     .xs-expired span { display: block; }
-    .xs-deadline { margin: 14px 0 0; color: #374151; font-size: 12px; text-align: center; }
-    .xs-hint { margin: 12px 0 0; color: var(--muted); font-size: 12px; font-weight: 700; text-align: center; }
-    .xs-topics { margin: 16px 0 0; padding-left: 1.25em; font-size: 14px; }
-    .xs-topics li + li { margin-top: 10px; }
     .xs-bonus { margin-top: 28px; scroll-margin-top: 16px; }
     .xs-apply-heading { margin: 0; padding: 24px 12px; background: #5a99ae; color: #fff; text-align: center; font-size: 23px; font-weight: 800; line-height: 1.5; }
     .xs-apply-heading span { display: block; }
@@ -116,20 +112,8 @@
         <div class="xs-status" id="finished" role="status" hidden>ご視聴ありがとうございました<small>↓ 特典と申し込みはこの下です</small></div>
         <div class="xs-status xs-expired" id="expired" role="status" hidden><span>動画視聴期限は</span><span>終了いたしました</span></div>
       </div>
-      <p class="xs-deadline" id="deadlineNote">動画の視聴期限は、初めてこのページを開いてから4日間です。</p>
       <p class="note left">※動画内でお話ししている金額は一例であり、成果を保証するものではありません。成果には個人差があります。</p>
-      <p class="xs-hint" id="hint" aria-live="polite">↓ 特典と申し込みはこの下にあります</p>
     </div>
-
-    <section class="sec">
-      <h2>このセミナーで<span class="xs-keep">お話ししていること</span></h2>
-      <ul class="xs-topics">
-        <li>自分の商品がなくても始められる理由</li>
-        <li>フォロワーが少なくても始められる理由</li>
-        <li>Xを伸ばしながら、マーケティングが身につく理由</li>
-        <li>よくある不安（初心者でも大丈夫？ 怪しくない？）へのお答え</li>
-      </ul>
-    </section>
 
     <div class="xs-bonus" id="bonus">
       <section aria-labelledby="applyTitle">
@@ -193,10 +177,8 @@
   var unavail = document.getElementById("unavail");
   var finished = document.getElementById("finished");
   var expiredMessage = document.getElementById("expired");
-  var deadlineNote = document.getElementById("deadlineNote");
   var elapsed = document.getElementById("elapsed");
   var resumeNote = document.getElementById("resumeNote");
-  var hint = document.getElementById("hint");
   var bonus = document.getElementById("bonus");
   var sticky = document.getElementById("sticky");
   var failed = false;
@@ -262,7 +244,6 @@
     unavail.hidden = true;
     expiredMessage.hidden = false;
     wrap.setAttribute("aria-label", "動画視聴期限は終了いたしました");
-    deadlineNote.textContent = "4日間の動画公開は終了しました。作成会へのお申し込みは下から受け付けています。";
     reveal(false);
   }
 
@@ -301,7 +282,6 @@
   function reveal(save) {
     bonus.hidden = false;
     sticky.hidden = false;
-    if (!failed || expired) hint.textContent = "↓ 特典と申し込みはこの下にあります";
     if (save && !debug && !revealSaved) {
       try { localStorage.setItem(REVEALED_KEY, "1"); revealSaved = true; } catch (e) {}
     }
@@ -339,7 +319,6 @@
     unmuteBtn.hidden = true;
     resumeNote.hidden = true;
     unavail.hidden = false;
-    hint.textContent = "動画を読み込めなかった方も、この下からお申し込みいただけます ↓";
     reveal(false);
   }
 
